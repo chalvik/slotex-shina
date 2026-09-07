@@ -1,0 +1,4265 @@
+Array
+(
+    [result] => Array
+        (
+            [ID] => Array
+                (
+                    [type] => integer
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => ID
+                )
+
+            [TITLE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Название лида
+                )
+
+            [HONORIFIC] => Array
+                (
+                    [type] => crm_status
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [statusType] => HONORIFIC
+                    [title] => Обращение
+                )
+
+            [NAME] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Имя
+                )
+
+            [SECOND_NAME] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Отчество
+                )
+
+            [LAST_NAME] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Фамилия
+                )
+
+            [BIRTHDATE] => Array
+                (
+                    [type] => date
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дата рождения
+                )
+
+            [COMPANY_TITLE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Название компании
+                )
+
+            [SOURCE_ID] => Array
+                (
+                    [type] => crm_status
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [statusType] => SOURCE
+                    [title] => Источник
+                )
+
+            [SOURCE_DESCRIPTION] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дополнительно об источнике
+                )
+
+            [STATUS_ID] => Array
+                (
+                    [type] => crm_status
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [statusType] => STATUS
+                    [title] => Стадия
+                )
+
+            [STATUS_DESCRIPTION] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дополнительно о стадии
+                )
+
+            [STATUS_SEMANTIC_ID] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Состояние статуса
+                )
+
+            [POST] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Должность
+                )
+
+            [ADDRESS] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Адрес
+                )
+
+            [ADDRESS_2] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Адрес (стр. 2)
+                )
+
+            [ADDRESS_CITY] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Город
+                )
+
+            [ADDRESS_POSTAL_CODE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Почтовый индекс
+                )
+
+            [ADDRESS_REGION] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Район
+                )
+
+            [ADDRESS_PROVINCE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Область
+                )
+
+            [ADDRESS_COUNTRY] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Страна
+                )
+
+            [ADDRESS_COUNTRY_CODE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Код страны
+                )
+
+            [ADDRESS_LOC_ADDR_ID] => Array
+                (
+                    [type] => integer
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Идентификатор адреса местоположения
+                )
+
+            [CURRENCY_ID] => Array
+                (
+                    [type] => crm_currency
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Валюта
+                )
+
+            [OPPORTUNITY] => Array
+                (
+                    [type] => double
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Сумма
+                )
+
+            [IS_MANUAL_OPPORTUNITY] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => IS_MANUAL_OPPORTUNITY
+                )
+
+            [OPENED] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Доступен для всех
+                )
+
+            [COMMENTS] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Комментарий
+                )
+
+            [HAS_PHONE] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Задан телефон
+                )
+
+            [HAS_EMAIL] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Задан e-mail
+                )
+
+            [HAS_IMOL] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Задана открытая линия
+                )
+
+            [ASSIGNED_BY_ID] => Array
+                (
+                    [type] => user
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Ответственный
+                )
+
+            [CREATED_BY_ID] => Array
+                (
+                    [type] => user
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Кем создан
+                )
+
+            [MODIFY_BY_ID] => Array
+                (
+                    [type] => user
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Кем изменен
+                )
+
+            [MOVED_BY_ID] => Array
+                (
+                    [type] => user
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => MOVED_BY_ID
+                )
+
+            [DATE_CREATE] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дата создания
+                )
+
+            [DATE_MODIFY] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дата изменения
+                )
+
+            [MOVED_TIME] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => MOVED_TIME
+                )
+
+            [COMPANY_ID] => Array
+                (
+                    [type] => crm_company
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Компания
+                    [settings] => Array
+                        (
+                            [parentEntityTypeId] => 4
+                        )
+
+                )
+
+            [CONTACT_ID] => Array
+                (
+                    [type] => crm_contact
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [isDeprecated] => 1
+                    [title] => Контакт
+                )
+
+            [CONTACT_IDS] => Array
+                (
+                    [type] => crm_contact
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => CONTACT_IDS
+                )
+
+            [IS_RETURN_CUSTOMER] => Array
+                (
+                    [type] => char
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Повторный лид
+                )
+
+            [DATE_CLOSED] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Дата завершения
+                )
+
+            [ORIGINATOR_ID] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Внешний источник
+                )
+
+            [ORIGIN_ID] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Идентификатор элемента во внешнем источнике
+                )
+
+            [UTM_SOURCE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Рекламная система
+                )
+
+            [UTM_MEDIUM] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Тип трафика
+                )
+
+            [UTM_CAMPAIGN] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Обозначение рекламной кампании
+                )
+
+            [UTM_CONTENT] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Содержание кампании
+                )
+
+            [UTM_TERM] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Условие поиска кампании
+                )
+
+            [PARENT_ID_1088] => Array
+                (
+                    [type] => crm_entity
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Бронирование объекта
+                    [settings] => Array
+                        (
+                            [parentEntityTypeId] => 1088
+                        )
+
+                )
+
+            [PARENT_ID_1120] => Array
+                (
+                    [type] => crm_entity
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => Сервис Деск
+                    [settings] => Array
+                        (
+                            [parentEntityTypeId] => 1120
+                        )
+
+                )
+
+            [LAST_ACTIVITY_TIME] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => LAST_ACTIVITY_TIME
+                )
+
+            [LAST_ACTIVITY_BY] => Array
+                (
+                    [type] => user
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => LAST_ACTIVITY_BY
+                )
+
+            [LAST_COMMUNICATION_TIME] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 1
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 
+                    [title] => LAST_COMMUNICATION_TIME
+                )
+
+            [PHONE] => Array
+                (
+                    [type] => crm_multifield
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => Телефон
+                )
+
+            [EMAIL] => Array
+                (
+                    [type] => crm_multifield
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => E-mail
+                )
+
+            [WEB] => Array
+                (
+                    [type] => crm_multifield
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => Сайт
+                )
+
+            [IM] => Array
+                (
+                    [type] => crm_multifield
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => Мессенджер
+                )
+
+            [LINK] => Array
+                (
+                    [type] => crm_multifield
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 
+                    [title] => LINK
+                )
+
+            [UF_CRM_APP_PL_LEAD_IFRAME] => Array
+                (
+                    [type] => rest_34_pl_crm_field
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_IFRAME
+                    [listLabel] => Определение местоположения
+                    [formLabel] => Определение местоположения
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_IFRAME
+                    [settings] => Array
+                        (
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_PHONE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_PHONE
+                    [listLabel] => Обработанный номер | Phone Location
+                    [formLabel] => Обработанный номер | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_PHONE
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_COUNTRY] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_COUNTRY
+                    [listLabel] => Страна | Phone Location
+                    [formLabel] => Страна | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_COUNTRY
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_DISTRICT] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_DISTRICT
+                    [listLabel] => Район | Phone Location
+                    [formLabel] => Район | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_DISTRICT
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_LOCALITY] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_LOCALITY
+                    [listLabel] => Населенный пункт | Phone Location
+                    [formLabel] => Населенный пункт | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_LOCALITY
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_TIMEZONE] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_TIMEZONE
+                    [listLabel] => Часовой пояс | Phone Location
+                    [formLabel] => Часовой пояс | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_TIMEZONE
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_REGION] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_APP_PL_LEAD_REGION
+                    [listLabel] => Регион | Phone Location
+                    [formLabel] => Регион | Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_REGION
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_REGION_LIST] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 96
+                                    [VALUE] => Москва
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 97
+                                    [VALUE] => Санкт-Петербург
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 98
+                                    [VALUE] => Республика Адыгея
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 99
+                                    [VALUE] => Республика Алтай
+                                )
+
+                            [4] => Array
+                                (
+                                    [ID] => 100
+                                    [VALUE] => Алтайский край
+                                )
+
+                            [5] => Array
+                                (
+                                    [ID] => 101
+                                    [VALUE] => Амурская область
+                                )
+
+                            [6] => Array
+                                (
+                                    [ID] => 102
+                                    [VALUE] => Архангельская область
+                                )
+
+                            [7] => Array
+                                (
+                                    [ID] => 103
+                                    [VALUE] => Астраханская область
+                                )
+
+                            [8] => Array
+                                (
+                                    [ID] => 104
+                                    [VALUE] => Республика Башкортостан
+                                )
+
+                            [9] => Array
+                                (
+                                    [ID] => 105
+                                    [VALUE] => Белгородская область
+                                )
+
+                            [10] => Array
+                                (
+                                    [ID] => 106
+                                    [VALUE] => Брянская область
+                                )
+
+                            [11] => Array
+                                (
+                                    [ID] => 107
+                                    [VALUE] => Республика Бурятия
+                                )
+
+                            [12] => Array
+                                (
+                                    [ID] => 108
+                                    [VALUE] => Владимирская область
+                                )
+
+                            [13] => Array
+                                (
+                                    [ID] => 109
+                                    [VALUE] => Волгоградская область
+                                )
+
+                            [14] => Array
+                                (
+                                    [ID] => 110
+                                    [VALUE] => Вологодская область
+                                )
+
+                            [15] => Array
+                                (
+                                    [ID] => 111
+                                    [VALUE] => Воронежская область
+                                )
+
+                            [16] => Array
+                                (
+                                    [ID] => 112
+                                    [VALUE] => Республика Дагестан
+                                )
+
+                            [17] => Array
+                                (
+                                    [ID] => 113
+                                    [VALUE] => Донецкая Народная Республика
+                                )
+
+                            [18] => Array
+                                (
+                                    [ID] => 114
+                                    [VALUE] => Еврейская АО
+                                )
+
+                            [19] => Array
+                                (
+                                    [ID] => 115
+                                    [VALUE] => Забайкальский край
+                                )
+
+                            [20] => Array
+                                (
+                                    [ID] => 116
+                                    [VALUE] => Запорожская область
+                                )
+
+                            [21] => Array
+                                (
+                                    [ID] => 117
+                                    [VALUE] => Ивановская область
+                                )
+
+                            [22] => Array
+                                (
+                                    [ID] => 118
+                                    [VALUE] => Республика Ингушетия
+                                )
+
+                            [23] => Array
+                                (
+                                    [ID] => 119
+                                    [VALUE] => Иркутская область
+                                )
+
+                            [24] => Array
+                                (
+                                    [ID] => 120
+                                    [VALUE] => Республика Кабардино-Балкария
+                                )
+
+                            [25] => Array
+                                (
+                                    [ID] => 121
+                                    [VALUE] => Калининградская область
+                                )
+
+                            [26] => Array
+                                (
+                                    [ID] => 122
+                                    [VALUE] => Республика Калмыкия
+                                )
+
+                            [27] => Array
+                                (
+                                    [ID] => 123
+                                    [VALUE] => Калужская область
+                                )
+
+                            [28] => Array
+                                (
+                                    [ID] => 124
+                                    [VALUE] => Камчатский край
+                                )
+
+                            [29] => Array
+                                (
+                                    [ID] => 125
+                                    [VALUE] => Карачаево-Черкесия
+                                )
+
+                            [30] => Array
+                                (
+                                    [ID] => 126
+                                    [VALUE] => Республика Карелия
+                                )
+
+                            [31] => Array
+                                (
+                                    [ID] => 127
+                                    [VALUE] => Кемеровская область
+                                )
+
+                            [32] => Array
+                                (
+                                    [ID] => 128
+                                    [VALUE] => Кировская область
+                                )
+
+                            [33] => Array
+                                (
+                                    [ID] => 129
+                                    [VALUE] => Республика Коми
+                                )
+
+                            [34] => Array
+                                (
+                                    [ID] => 130
+                                    [VALUE] => Костромская область
+                                )
+
+                            [35] => Array
+                                (
+                                    [ID] => 131
+                                    [VALUE] => Краснодарский край
+                                )
+
+                            [36] => Array
+                                (
+                                    [ID] => 132
+                                    [VALUE] => Красноярский край
+                                )
+
+                            [37] => Array
+                                (
+                                    [ID] => 133
+                                    [VALUE] => Республика Крым
+                                )
+
+                            [38] => Array
+                                (
+                                    [ID] => 134
+                                    [VALUE] => Курганская область
+                                )
+
+                            [39] => Array
+                                (
+                                    [ID] => 135
+                                    [VALUE] => Курская область
+                                )
+
+                            [40] => Array
+                                (
+                                    [ID] => 136
+                                    [VALUE] => Ленинградская область
+                                )
+
+                            [41] => Array
+                                (
+                                    [ID] => 137
+                                    [VALUE] => Липецкая область
+                                )
+
+                            [42] => Array
+                                (
+                                    [ID] => 138
+                                    [VALUE] => Луганская Народная Республика
+                                )
+
+                            [43] => Array
+                                (
+                                    [ID] => 139
+                                    [VALUE] => Магаданская область
+                                )
+
+                            [44] => Array
+                                (
+                                    [ID] => 140
+                                    [VALUE] => Республика Марий Эл
+                                )
+
+                            [45] => Array
+                                (
+                                    [ID] => 141
+                                    [VALUE] => Республика Мордовия
+                                )
+
+                            [46] => Array
+                                (
+                                    [ID] => 142
+                                    [VALUE] => Московская область
+                                )
+
+                            [47] => Array
+                                (
+                                    [ID] => 143
+                                    [VALUE] => Мурманская область
+                                )
+
+                            [48] => Array
+                                (
+                                    [ID] => 144
+                                    [VALUE] => Ненецкий автономный округ
+                                )
+
+                            [49] => Array
+                                (
+                                    [ID] => 145
+                                    [VALUE] => Нижегородская область
+                                )
+
+                            [50] => Array
+                                (
+                                    [ID] => 146
+                                    [VALUE] => Новгородская область
+                                )
+
+                            [51] => Array
+                                (
+                                    [ID] => 147
+                                    [VALUE] => Новосибирская область
+                                )
+
+                            [52] => Array
+                                (
+                                    [ID] => 148
+                                    [VALUE] => Омская область
+                                )
+
+                            [53] => Array
+                                (
+                                    [ID] => 149
+                                    [VALUE] => Оренбургская область
+                                )
+
+                            [54] => Array
+                                (
+                                    [ID] => 150
+                                    [VALUE] => Орловская область
+                                )
+
+                            [55] => Array
+                                (
+                                    [ID] => 151
+                                    [VALUE] => Пензенская область
+                                )
+
+                            [56] => Array
+                                (
+                                    [ID] => 152
+                                    [VALUE] => Пермский край
+                                )
+
+                            [57] => Array
+                                (
+                                    [ID] => 153
+                                    [VALUE] => Приморский край
+                                )
+
+                            [58] => Array
+                                (
+                                    [ID] => 154
+                                    [VALUE] => Псковская область
+                                )
+
+                            [59] => Array
+                                (
+                                    [ID] => 155
+                                    [VALUE] => Ростовская область
+                                )
+
+                            [60] => Array
+                                (
+                                    [ID] => 156
+                                    [VALUE] => Рязанская область
+                                )
+
+                            [61] => Array
+                                (
+                                    [ID] => 157
+                                    [VALUE] => Самарская область
+                                )
+
+                            [62] => Array
+                                (
+                                    [ID] => 158
+                                    [VALUE] => Саратовская область
+                                )
+
+                            [63] => Array
+                                (
+                                    [ID] => 159
+                                    [VALUE] => Республика Саха (Якутия)
+                                )
+
+                            [64] => Array
+                                (
+                                    [ID] => 160
+                                    [VALUE] => Сахалинская область
+                                )
+
+                            [65] => Array
+                                (
+                                    [ID] => 161
+                                    [VALUE] => Свердловская область
+                                )
+
+                            [66] => Array
+                                (
+                                    [ID] => 162
+                                    [VALUE] => Севастополь
+                                )
+
+                            [67] => Array
+                                (
+                                    [ID] => 163
+                                    [VALUE] => Северная Осетия
+                                )
+
+                            [68] => Array
+                                (
+                                    [ID] => 164
+                                    [VALUE] => Смоленская область
+                                )
+
+                            [69] => Array
+                                (
+                                    [ID] => 165
+                                    [VALUE] => Ставропольский край
+                                )
+
+                            [70] => Array
+                                (
+                                    [ID] => 166
+                                    [VALUE] => Тамбовская область
+                                )
+
+                            [71] => Array
+                                (
+                                    [ID] => 167
+                                    [VALUE] => Республика Татарстан
+                                )
+
+                            [72] => Array
+                                (
+                                    [ID] => 168
+                                    [VALUE] => Тверская область
+                                )
+
+                            [73] => Array
+                                (
+                                    [ID] => 169
+                                    [VALUE] => Томская область
+                                )
+
+                            [74] => Array
+                                (
+                                    [ID] => 170
+                                    [VALUE] => Тыва республика
+                                )
+
+                            [75] => Array
+                                (
+                                    [ID] => 171
+                                    [VALUE] => Тульская область
+                                )
+
+                            [76] => Array
+                                (
+                                    [ID] => 172
+                                    [VALUE] => Тюменская область
+                                )
+
+                            [77] => Array
+                                (
+                                    [ID] => 173
+                                    [VALUE] => Республика Удмуртия
+                                )
+
+                            [78] => Array
+                                (
+                                    [ID] => 174
+                                    [VALUE] => Ульяновская область
+                                )
+
+                            [79] => Array
+                                (
+                                    [ID] => 175
+                                    [VALUE] => Хабаровский край
+                                )
+
+                            [80] => Array
+                                (
+                                    [ID] => 176
+                                    [VALUE] => Республика Хакасия
+                                )
+
+                            [81] => Array
+                                (
+                                    [ID] => 177
+                                    [VALUE] => Ханты-Мансийский автономный округ
+                                )
+
+                            [82] => Array
+                                (
+                                    [ID] => 178
+                                    [VALUE] => Херсонская область
+                                )
+
+                            [83] => Array
+                                (
+                                    [ID] => 179
+                                    [VALUE] => Челябинская область
+                                )
+
+                            [84] => Array
+                                (
+                                    [ID] => 180
+                                    [VALUE] => Республика Чечня
+                                )
+
+                            [85] => Array
+                                (
+                                    [ID] => 181
+                                    [VALUE] => Республика Чувашия
+                                )
+
+                            [86] => Array
+                                (
+                                    [ID] => 182
+                                    [VALUE] => Чукотский АО
+                                )
+
+                            [87] => Array
+                                (
+                                    [ID] => 183
+                                    [VALUE] => Ямало-Ненецкий автономный округ
+                                )
+
+                            [88] => Array
+                                (
+                                    [ID] => 184
+                                    [VALUE] => Ярославская область
+                                )
+
+                        )
+
+                    [title] => UF_CRM_APP_PL_LEAD_REGION_LIST
+                    [listLabel] => Регионы РФ Phone Location
+                    [formLabel] => Регионы РФ Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_REGION_LIST
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_APP_PL_LEAD_TIMEZONE_LIST] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 185
+                                    [VALUE] => Pacific/Midway (-11 часов)
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 186
+                                    [VALUE] => Pacific/Niue (-11 часов)
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 187
+                                    [VALUE] => Pacific/Pago_Pago (-11 часов)
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 188
+                                    [VALUE] => Pacific/Honolulu (-10 часов)
+                                )
+
+                            [4] => Array
+                                (
+                                    [ID] => 189
+                                    [VALUE] => Pacific/Rarotonga (-10 часов)
+                                )
+
+                            [5] => Array
+                                (
+                                    [ID] => 190
+                                    [VALUE] => Pacific/Tahiti (-10 часов)
+                                )
+
+                            [6] => Array
+                                (
+                                    [ID] => 191
+                                    [VALUE] => Pacific/Marquesas (-9.5 часов)
+                                )
+
+                            [7] => Array
+                                (
+                                    [ID] => 192
+                                    [VALUE] => America/Adak (-9 часов)
+                                )
+
+                            [8] => Array
+                                (
+                                    [ID] => 193
+                                    [VALUE] => Pacific/Gambier (-9 часов)
+                                )
+
+                            [9] => Array
+                                (
+                                    [ID] => 194
+                                    [VALUE] => America/Anchorage (-8 часов)
+                                )
+
+                            [10] => Array
+                                (
+                                    [ID] => 195
+                                    [VALUE] => America/Juneau (-8 часов)
+                                )
+
+                            [11] => Array
+                                (
+                                    [ID] => 196
+                                    [VALUE] => America/Metlakatla (-8 часов)
+                                )
+
+                            [12] => Array
+                                (
+                                    [ID] => 197
+                                    [VALUE] => America/Nome (-8 часов)
+                                )
+
+                            [13] => Array
+                                (
+                                    [ID] => 198
+                                    [VALUE] => America/Sitka (-8 часов)
+                                )
+
+                            [14] => Array
+                                (
+                                    [ID] => 199
+                                    [VALUE] => America/Yakutat (-8 часов)
+                                )
+
+                            [15] => Array
+                                (
+                                    [ID] => 200
+                                    [VALUE] => Pacific/Pitcairn (-8 часов)
+                                )
+
+                            [16] => Array
+                                (
+                                    [ID] => 201
+                                    [VALUE] => America/Creston (-7 часов)
+                                )
+
+                            [17] => Array
+                                (
+                                    [ID] => 202
+                                    [VALUE] => America/Dawson (-7 часов)
+                                )
+
+                            [18] => Array
+                                (
+                                    [ID] => 203
+                                    [VALUE] => America/Dawson_Creek (-7 часов)
+                                )
+
+                            [19] => Array
+                                (
+                                    [ID] => 204
+                                    [VALUE] => America/Fort_Nelson (-7 часов)
+                                )
+
+                            [20] => Array
+                                (
+                                    [ID] => 205
+                                    [VALUE] => America/Hermosillo (-7 часов)
+                                )
+
+                            [21] => Array
+                                (
+                                    [ID] => 206
+                                    [VALUE] => America/Los_Angeles (-7 часов)
+                                )
+
+                            [22] => Array
+                                (
+                                    [ID] => 207
+                                    [VALUE] => America/Phoenix (-7 часов)
+                                )
+
+                            [23] => Array
+                                (
+                                    [ID] => 208
+                                    [VALUE] => America/Tijuana (-7 часов)
+                                )
+
+                            [24] => Array
+                                (
+                                    [ID] => 209
+                                    [VALUE] => America/Vancouver (-7 часов)
+                                )
+
+                            [25] => Array
+                                (
+                                    [ID] => 210
+                                    [VALUE] => America/Whitehorse (-7 часов)
+                                )
+
+                            [26] => Array
+                                (
+                                    [ID] => 211
+                                    [VALUE] => America/Belize (-6 часов)
+                                )
+
+                            [27] => Array
+                                (
+                                    [ID] => 212
+                                    [VALUE] => America/Boise (-6 часов)
+                                )
+
+                            [28] => Array
+                                (
+                                    [ID] => 213
+                                    [VALUE] => America/Cambridge_Bay (-6 часов)
+                                )
+
+                            [29] => Array
+                                (
+                                    [ID] => 214
+                                    [VALUE] => America/Chihuahua (-6 часов)
+                                )
+
+                            [30] => Array
+                                (
+                                    [ID] => 215
+                                    [VALUE] => America/Costa_Rica (-6 часов)
+                                )
+
+                            [31] => Array
+                                (
+                                    [ID] => 216
+                                    [VALUE] => America/Denver (-6 часов)
+                                )
+
+                            [32] => Array
+                                (
+                                    [ID] => 217
+                                    [VALUE] => America/Edmonton (-6 часов)
+                                )
+
+                            [33] => Array
+                                (
+                                    [ID] => 218
+                                    [VALUE] => America/El_Salvador (-6 часов)
+                                )
+
+                            [34] => Array
+                                (
+                                    [ID] => 219
+                                    [VALUE] => America/Guatemala (-6 часов)
+                                )
+
+                            [35] => Array
+                                (
+                                    [ID] => 220
+                                    [VALUE] => America/Inuvik (-6 часов)
+                                )
+
+                            [36] => Array
+                                (
+                                    [ID] => 221
+                                    [VALUE] => America/Managua (-6 часов)
+                                )
+
+                            [37] => Array
+                                (
+                                    [ID] => 222
+                                    [VALUE] => America/Mazatlan (-6 часов)
+                                )
+
+                            [38] => Array
+                                (
+                                    [ID] => 223
+                                    [VALUE] => America/Ojinaga (-6 часов)
+                                )
+
+                            [39] => Array
+                                (
+                                    [ID] => 224
+                                    [VALUE] => America/Regina (-6 часов)
+                                )
+
+                            [40] => Array
+                                (
+                                    [ID] => 225
+                                    [VALUE] => America/Swift_Current (-6 часов)
+                                )
+
+                            [41] => Array
+                                (
+                                    [ID] => 226
+                                    [VALUE] => America/Tegucigalpa (-6 часов)
+                                )
+
+                            [42] => Array
+                                (
+                                    [ID] => 227
+                                    [VALUE] => America/Yellowknife (-6 часов)
+                                )
+
+                            [43] => Array
+                                (
+                                    [ID] => 228
+                                    [VALUE] => Pacific/Easter (-6 часов)
+                                )
+
+                            [44] => Array
+                                (
+                                    [ID] => 229
+                                    [VALUE] => Pacific/Galapagos (-6 часов)
+                                )
+
+                            [45] => Array
+                                (
+                                    [ID] => 230
+                                    [VALUE] => America/Atikokan (-5 часов)
+                                )
+
+                            [46] => Array
+                                (
+                                    [ID] => 231
+                                    [VALUE] => America/Bahia_Banderas (-5 часов)
+                                )
+
+                            [47] => Array
+                                (
+                                    [ID] => 232
+                                    [VALUE] => America/Bogota (-5 часов)
+                                )
+
+                            [48] => Array
+                                (
+                                    [ID] => 233
+                                    [VALUE] => America/Cancun (-5 часов)
+                                )
+
+                            [49] => Array
+                                (
+                                    [ID] => 234
+                                    [VALUE] => America/Cayman (-5 часов)
+                                )
+
+                            [50] => Array
+                                (
+                                    [ID] => 235
+                                    [VALUE] => America/Chicago (-5 часов)
+                                )
+
+                            [51] => Array
+                                (
+                                    [ID] => 236
+                                    [VALUE] => America/Eirunepe (-5 часов)
+                                )
+
+                            [52] => Array
+                                (
+                                    [ID] => 237
+                                    [VALUE] => America/Guayaquil (-5 часов)
+                                )
+
+                            [53] => Array
+                                (
+                                    [ID] => 238
+                                    [VALUE] => America/Indiana/Knox (-5 часов)
+                                )
+
+                            [54] => Array
+                                (
+                                    [ID] => 239
+                                    [VALUE] => America/Indiana/Tell_City (-5 часов)
+                                )
+
+                            [55] => Array
+                                (
+                                    [ID] => 240
+                                    [VALUE] => America/Jamaica (-5 часов)
+                                )
+
+                            [56] => Array
+                                (
+                                    [ID] => 241
+                                    [VALUE] => America/Lima (-5 часов)
+                                )
+
+                            [57] => Array
+                                (
+                                    [ID] => 242
+                                    [VALUE] => America/Matamoros (-5 часов)
+                                )
+
+                            [58] => Array
+                                (
+                                    [ID] => 243
+                                    [VALUE] => America/Menominee (-5 часов)
+                                )
+
+                            [59] => Array
+                                (
+                                    [ID] => 244
+                                    [VALUE] => America/Merida (-5 часов)
+                                )
+
+                            [60] => Array
+                                (
+                                    [ID] => 245
+                                    [VALUE] => America/Mexico_City (-5 часов)
+                                )
+
+                            [61] => Array
+                                (
+                                    [ID] => 246
+                                    [VALUE] => America/Monterrey (-5 часов)
+                                )
+
+                            [62] => Array
+                                (
+                                    [ID] => 247
+                                    [VALUE] => America/North_Dakota/Beulah (-5 часов)
+                                )
+
+                            [63] => Array
+                                (
+                                    [ID] => 248
+                                    [VALUE] => America/North_Dakota/Center (-5 часов)
+                                )
+
+                            [64] => Array
+                                (
+                                    [ID] => 249
+                                    [VALUE] => America/North_Dakota/New_Salem (-5 часов)
+                                )
+
+                            [65] => Array
+                                (
+                                    [ID] => 250
+                                    [VALUE] => America/Panama (-5 часов)
+                                )
+
+                            [66] => Array
+                                (
+                                    [ID] => 251
+                                    [VALUE] => America/Rainy_River (-5 часов)
+                                )
+
+                            [67] => Array
+                                (
+                                    [ID] => 252
+                                    [VALUE] => America/Rankin_Inlet (-5 часов)
+                                )
+
+                            [68] => Array
+                                (
+                                    [ID] => 253
+                                    [VALUE] => America/Resolute (-5 часов)
+                                )
+
+                            [69] => Array
+                                (
+                                    [ID] => 254
+                                    [VALUE] => America/Rio_Branco (-5 часов)
+                                )
+
+                            [70] => Array
+                                (
+                                    [ID] => 255
+                                    [VALUE] => America/Winnipeg (-5 часов)
+                                )
+
+                            [71] => Array
+                                (
+                                    [ID] => 256
+                                    [VALUE] => America/Anguilla (-4 часа)
+                                )
+
+                            [72] => Array
+                                (
+                                    [ID] => 257
+                                    [VALUE] => America/Antigua (-4 часа)
+                                )
+
+                            [73] => Array
+                                (
+                                    [ID] => 258
+                                    [VALUE] => America/Aruba (-4 часа)
+                                )
+
+                            [74] => Array
+                                (
+                                    [ID] => 259
+                                    [VALUE] => America/Asuncion (-4 часа)
+                                )
+
+                            [75] => Array
+                                (
+                                    [ID] => 260
+                                    [VALUE] => America/Barbados (-4 часа)
+                                )
+
+                            [76] => Array
+                                (
+                                    [ID] => 261
+                                    [VALUE] => America/Blanc-Sablon (-4 часа)
+                                )
+
+                            [77] => Array
+                                (
+                                    [ID] => 262
+                                    [VALUE] => America/Boa_Vista (-4 часа)
+                                )
+
+                            [78] => Array
+                                (
+                                    [ID] => 263
+                                    [VALUE] => America/Campo_Grande (-4 часа)
+                                )
+
+                            [79] => Array
+                                (
+                                    [ID] => 264
+                                    [VALUE] => America/Caracas (-4 часа)
+                                )
+
+                            [80] => Array
+                                (
+                                    [ID] => 265
+                                    [VALUE] => America/Cuiaba (-4 часа)
+                                )
+
+                            [81] => Array
+                                (
+                                    [ID] => 266
+                                    [VALUE] => America/Curacao (-4 часа)
+                                )
+
+                            [82] => Array
+                                (
+                                    [ID] => 267
+                                    [VALUE] => America/Detroit (-4 часа)
+                                )
+
+                            [83] => Array
+                                (
+                                    [ID] => 268
+                                    [VALUE] => America/Dominica (-4 часа)
+                                )
+
+                            [84] => Array
+                                (
+                                    [ID] => 269
+                                    [VALUE] => America/Grand_Turk (-4 часа)
+                                )
+
+                            [85] => Array
+                                (
+                                    [ID] => 270
+                                    [VALUE] => America/Grenada (-4 часа)
+                                )
+
+                            [86] => Array
+                                (
+                                    [ID] => 271
+                                    [VALUE] => America/Guadeloupe (-4 часа)
+                                )
+
+                            [87] => Array
+                                (
+                                    [ID] => 272
+                                    [VALUE] => America/Guyana (-4 часа)
+                                )
+
+                            [88] => Array
+                                (
+                                    [ID] => 273
+                                    [VALUE] => America/Havana (-4 часа)
+                                )
+
+                            [89] => Array
+                                (
+                                    [ID] => 274
+                                    [VALUE] => America/Indiana/Indianapolis (-4 часа)
+                                )
+
+                            [90] => Array
+                                (
+                                    [ID] => 275
+                                    [VALUE] => America/Indiana/Marengo (-4 часа)
+                                )
+
+                            [91] => Array
+                                (
+                                    [ID] => 276
+                                    [VALUE] => America/Indiana/Petersburg (-4 часа)
+                                )
+
+                            [92] => Array
+                                (
+                                    [ID] => 277
+                                    [VALUE] => America/Indiana/Vevay (-4 часа)
+                                )
+
+                            [93] => Array
+                                (
+                                    [ID] => 278
+                                    [VALUE] => America/Indiana/Vincennes (-4 часа)
+                                )
+
+                            [94] => Array
+                                (
+                                    [ID] => 279
+                                    [VALUE] => America/Indiana/Winamac (-4 часа)
+                                )
+
+                            [95] => Array
+                                (
+                                    [ID] => 280
+                                    [VALUE] => America/Iqaluit (-4 часа)
+                                )
+
+                            [96] => Array
+                                (
+                                    [ID] => 281
+                                    [VALUE] => America/Kentucky/Louisville (-4 часа)
+                                )
+
+                            [97] => Array
+                                (
+                                    [ID] => 282
+                                    [VALUE] => America/Kentucky/Monticello (-4 часа)
+                                )
+
+                            [98] => Array
+                                (
+                                    [ID] => 283
+                                    [VALUE] => America/Kralendijk (-4 часа)
+                                )
+
+                            [99] => Array
+                                (
+                                    [ID] => 284
+                                    [VALUE] => America/La_Paz (-4 часа)
+                                )
+
+                            [100] => Array
+                                (
+                                    [ID] => 285
+                                    [VALUE] => America/Lower_Princes (-4 часа)
+                                )
+
+                            [101] => Array
+                                (
+                                    [ID] => 286
+                                    [VALUE] => America/Manaus (-4 часа)
+                                )
+
+                            [102] => Array
+                                (
+                                    [ID] => 287
+                                    [VALUE] => America/Marigot (-4 часа)
+                                )
+
+                            [103] => Array
+                                (
+                                    [ID] => 288
+                                    [VALUE] => America/Martinique (-4 часа)
+                                )
+
+                            [104] => Array
+                                (
+                                    [ID] => 289
+                                    [VALUE] => America/Montserrat (-4 часа)
+                                )
+
+                            [105] => Array
+                                (
+                                    [ID] => 290
+                                    [VALUE] => America/Nassau (-4 часа)
+                                )
+
+                            [106] => Array
+                                (
+                                    [ID] => 291
+                                    [VALUE] => America/New_York (-4 часа)
+                                )
+
+                            [107] => Array
+                                (
+                                    [ID] => 292
+                                    [VALUE] => America/Nipigon (-4 часа)
+                                )
+
+                            [108] => Array
+                                (
+                                    [ID] => 293
+                                    [VALUE] => America/Pangnirtung (-4 часа)
+                                )
+
+                            [109] => Array
+                                (
+                                    [ID] => 294
+                                    [VALUE] => America/Port-au-Prince (-4 часа)
+                                )
+
+                            [110] => Array
+                                (
+                                    [ID] => 295
+                                    [VALUE] => America/Port_of_Spain (-4 часа)
+                                )
+
+                            [111] => Array
+                                (
+                                    [ID] => 296
+                                    [VALUE] => America/Porto_Velho (-4 часа)
+                                )
+
+                            [112] => Array
+                                (
+                                    [ID] => 297
+                                    [VALUE] => America/Puerto_Rico (-4 часа)
+                                )
+
+                            [113] => Array
+                                (
+                                    [ID] => 298
+                                    [VALUE] => America/Santiago (-4 часа)
+                                )
+
+                            [114] => Array
+                                (
+                                    [ID] => 299
+                                    [VALUE] => America/Santo_Domingo (-4 часа)
+                                )
+
+                            [115] => Array
+                                (
+                                    [ID] => 300
+                                    [VALUE] => America/St_Barthelemy (-4 часа)
+                                )
+
+                            [116] => Array
+                                (
+                                    [ID] => 301
+                                    [VALUE] => America/St_Kitts (-4 часа)
+                                )
+
+                            [117] => Array
+                                (
+                                    [ID] => 302
+                                    [VALUE] => America/St_Lucia (-4 часа)
+                                )
+
+                            [118] => Array
+                                (
+                                    [ID] => 303
+                                    [VALUE] => America/St_Thomas (-4 часа)
+                                )
+
+                            [119] => Array
+                                (
+                                    [ID] => 304
+                                    [VALUE] => America/St_Vincent (-4 часа)
+                                )
+
+                            [120] => Array
+                                (
+                                    [ID] => 305
+                                    [VALUE] => America/Thunder_Bay (-4 часа)
+                                )
+
+                            [121] => Array
+                                (
+                                    [ID] => 306
+                                    [VALUE] => America/Toronto (-4 часа)
+                                )
+
+                            [122] => Array
+                                (
+                                    [ID] => 307
+                                    [VALUE] => America/Tortola (-4 часа)
+                                )
+
+                            [123] => Array
+                                (
+                                    [ID] => 308
+                                    [VALUE] => America/Araguaina (-3 часа)
+                                )
+
+                            [124] => Array
+                                (
+                                    [ID] => 309
+                                    [VALUE] => America/Argentina/Buenos_Aires (-3 часа)
+                                )
+
+                            [125] => Array
+                                (
+                                    [ID] => 310
+                                    [VALUE] => America/Argentina/Catamarca (-3 часа)
+                                )
+
+                            [126] => Array
+                                (
+                                    [ID] => 311
+                                    [VALUE] => America/Argentina/Cordoba (-3 часа)
+                                )
+
+                            [127] => Array
+                                (
+                                    [ID] => 312
+                                    [VALUE] => America/Argentina/Jujuy (-3 часа)
+                                )
+
+                            [128] => Array
+                                (
+                                    [ID] => 313
+                                    [VALUE] => America/Argentina/La_Rioja (-3 часа)
+                                )
+
+                            [129] => Array
+                                (
+                                    [ID] => 314
+                                    [VALUE] => America/Argentina/Mendoza (-3 часа)
+                                )
+
+                            [130] => Array
+                                (
+                                    [ID] => 315
+                                    [VALUE] => America/Argentina/Rio_Gallegos (-3 часа)
+                                )
+
+                            [131] => Array
+                                (
+                                    [ID] => 316
+                                    [VALUE] => America/Argentina/Salta (-3 часа)
+                                )
+
+                            [132] => Array
+                                (
+                                    [ID] => 317
+                                    [VALUE] => America/Argentina/San_Juan (-3 часа)
+                                )
+
+                            [133] => Array
+                                (
+                                    [ID] => 318
+                                    [VALUE] => America/Argentina/San_Luis (-3 часа)
+                                )
+
+                            [134] => Array
+                                (
+                                    [ID] => 319
+                                    [VALUE] => America/Argentina/Tucuman (-3 часа)
+                                )
+
+                            [135] => Array
+                                (
+                                    [ID] => 320
+                                    [VALUE] => America/Argentina/Ushuaia (-3 часа)
+                                )
+
+                            [136] => Array
+                                (
+                                    [ID] => 321
+                                    [VALUE] => America/Bahia (-3 часа)
+                                )
+
+                            [137] => Array
+                                (
+                                    [ID] => 322
+                                    [VALUE] => America/Belem (-3 часа)
+                                )
+
+                            [138] => Array
+                                (
+                                    [ID] => 323
+                                    [VALUE] => America/Cayenne (-3 часа)
+                                )
+
+                            [139] => Array
+                                (
+                                    [ID] => 324
+                                    [VALUE] => America/Fortaleza (-3 часа)
+                                )
+
+                            [140] => Array
+                                (
+                                    [ID] => 325
+                                    [VALUE] => America/Glace_Bay (-3 часа)
+                                )
+
+                            [141] => Array
+                                (
+                                    [ID] => 326
+                                    [VALUE] => America/Goose_Bay (-3 часа)
+                                )
+
+                            [142] => Array
+                                (
+                                    [ID] => 327
+                                    [VALUE] => America/Halifax (-3 часа)
+                                )
+
+                            [143] => Array
+                                (
+                                    [ID] => 328
+                                    [VALUE] => America/Maceio (-3 часа)
+                                )
+
+                            [144] => Array
+                                (
+                                    [ID] => 329
+                                    [VALUE] => America/Moncton (-3 часа)
+                                )
+
+                            [145] => Array
+                                (
+                                    [ID] => 330
+                                    [VALUE] => America/Montevideo (-3 часа)
+                                )
+
+                            [146] => Array
+                                (
+                                    [ID] => 331
+                                    [VALUE] => America/Paramaribo (-3 часа)
+                                )
+
+                            [147] => Array
+                                (
+                                    [ID] => 332
+                                    [VALUE] => America/Punta_Arenas (-3 часа)
+                                )
+
+                            [148] => Array
+                                (
+                                    [ID] => 333
+                                    [VALUE] => America/Recife (-3 часа)
+                                )
+
+                            [149] => Array
+                                (
+                                    [ID] => 334
+                                    [VALUE] => America/Santarem (-3 часа)
+                                )
+
+                            [150] => Array
+                                (
+                                    [ID] => 335
+                                    [VALUE] => America/Sao_Paulo (-3 часа)
+                                )
+
+                            [151] => Array
+                                (
+                                    [ID] => 336
+                                    [VALUE] => America/Thule (-3 часа)
+                                )
+
+                            [152] => Array
+                                (
+                                    [ID] => 337
+                                    [VALUE] => Atlantic/Bermuda (-3 часа)
+                                )
+
+                            [153] => Array
+                                (
+                                    [ID] => 338
+                                    [VALUE] => Atlantic/Stanley (-3 часа)
+                                )
+
+                            [154] => Array
+                                (
+                                    [ID] => 339
+                                    [VALUE] => America/St_Johns (-2.5 часа)
+                                )
+
+                            [155] => Array
+                                (
+                                    [ID] => 340
+                                    [VALUE] => America/Miquelon (-2 часа)
+                                )
+
+                            [156] => Array
+                                (
+                                    [ID] => 341
+                                    [VALUE] => America/Noronha (-2 часа)
+                                )
+
+                            [157] => Array
+                                (
+                                    [ID] => 342
+                                    [VALUE] => America/Nuuk (-2 часа)
+                                )
+
+                            [158] => Array
+                                (
+                                    [ID] => 343
+                                    [VALUE] => Atlantic/South_Georgia (-2 часа)
+                                )
+
+                            [159] => Array
+                                (
+                                    [ID] => 344
+                                    [VALUE] => Atlantic/Cape_Verde (-1 час)
+                                )
+
+                            [160] => Array
+                                (
+                                    [ID] => 345
+                                    [VALUE] => America/Danmarkshavn (+0 часов)
+                                )
+
+                            [161] => Array
+                                (
+                                    [ID] => 346
+                                    [VALUE] => America/Scoresbysund (+0 часов)
+                                )
+
+                            [162] => Array
+                                (
+                                    [ID] => 347
+                                    [VALUE] => Atlantic/Azores (+0 часов)
+                                )
+
+                            [163] => Array
+                                (
+                                    [ID] => 348
+                                    [VALUE] => Atlantic/Reykjavik (+0 часов)
+                                )
+
+                            [164] => Array
+                                (
+                                    [ID] => 349
+                                    [VALUE] => Atlantic/St_Helena (+0 часов)
+                                )
+
+                            [165] => Array
+                                (
+                                    [ID] => 350
+                                    [VALUE] => Atlantic/Canary (+1 час)
+                                )
+
+                            [166] => Array
+                                (
+                                    [ID] => 351
+                                    [VALUE] => Atlantic/Faroe (+1 час)
+                                )
+
+                            [167] => Array
+                                (
+                                    [ID] => 352
+                                    [VALUE] => Atlantic/Madeira (+1 час)
+                                )
+
+                            [168] => Array
+                                (
+                                    [ID] => 353
+                                    [VALUE] => Europe/Dublin (+1 час)
+                                )
+
+                            [169] => Array
+                                (
+                                    [ID] => 354
+                                    [VALUE] => Europe/Guernsey (+1 час)
+                                )
+
+                            [170] => Array
+                                (
+                                    [ID] => 355
+                                    [VALUE] => Europe/Isle_of_Man (+1 час)
+                                )
+
+                            [171] => Array
+                                (
+                                    [ID] => 356
+                                    [VALUE] => Europe/Jersey (+1 час)
+                                )
+
+                            [172] => Array
+                                (
+                                    [ID] => 357
+                                    [VALUE] => Europe/Lisbon (+1 час)
+                                )
+
+                            [173] => Array
+                                (
+                                    [ID] => 358
+                                    [VALUE] => Europe/London (+1 час)
+                                )
+
+                            [174] => Array
+                                (
+                                    [ID] => 359
+                                    [VALUE] => Arctic/Longyearbyen (+2 часа)
+                                )
+
+                            [175] => Array
+                                (
+                                    [ID] => 360
+                                    [VALUE] => Europe/Amsterdam (+2 часа)
+                                )
+
+                            [176] => Array
+                                (
+                                    [ID] => 361
+                                    [VALUE] => Europe/Andorra (+2 часа)
+                                )
+
+                            [177] => Array
+                                (
+                                    [ID] => 362
+                                    [VALUE] => Europe/Belgrade (+2 часа)
+                                )
+
+                            [178] => Array
+                                (
+                                    [ID] => 363
+                                    [VALUE] => Europe/Berlin (+2 часа)
+                                )
+
+                            [179] => Array
+                                (
+                                    [ID] => 364
+                                    [VALUE] => Europe/Bratislava (+2 часа)
+                                )
+
+                            [180] => Array
+                                (
+                                    [ID] => 365
+                                    [VALUE] => Europe/Brussels (+2 часа)
+                                )
+
+                            [181] => Array
+                                (
+                                    [ID] => 366
+                                    [VALUE] => Europe/Budapest (+2 часа)
+                                )
+
+                            [182] => Array
+                                (
+                                    [ID] => 367
+                                    [VALUE] => Europe/Busingen (+2 часа)
+                                )
+
+                            [183] => Array
+                                (
+                                    [ID] => 368
+                                    [VALUE] => Europe/Copenhagen (+2 часа)
+                                )
+
+                            [184] => Array
+                                (
+                                    [ID] => 369
+                                    [VALUE] => Europe/Gibraltar (+2 часа)
+                                )
+
+                            [185] => Array
+                                (
+                                    [ID] => 370
+                                    [VALUE] => Europe/Kaliningrad (+2 часа)
+                                )
+
+                            [186] => Array
+                                (
+                                    [ID] => 371
+                                    [VALUE] => Europe/Ljubljana (+2 часа)
+                                )
+
+                            [187] => Array
+                                (
+                                    [ID] => 372
+                                    [VALUE] => Europe/Luxembourg (+2 часа)
+                                )
+
+                            [188] => Array
+                                (
+                                    [ID] => 373
+                                    [VALUE] => Europe/Madrid (+2 часа)
+                                )
+
+                            [189] => Array
+                                (
+                                    [ID] => 374
+                                    [VALUE] => Europe/Malta (+2 часа)
+                                )
+
+                            [190] => Array
+                                (
+                                    [ID] => 375
+                                    [VALUE] => Europe/Monaco (+2 часа)
+                                )
+
+                            [191] => Array
+                                (
+                                    [ID] => 376
+                                    [VALUE] => Europe/Oslo (+2 часа)
+                                )
+
+                            [192] => Array
+                                (
+                                    [ID] => 377
+                                    [VALUE] => Europe/Paris (+2 часа)
+                                )
+
+                            [193] => Array
+                                (
+                                    [ID] => 378
+                                    [VALUE] => Europe/Podgorica (+2 часа)
+                                )
+
+                            [194] => Array
+                                (
+                                    [ID] => 379
+                                    [VALUE] => Europe/Prague (+2 часа)
+                                )
+
+                            [195] => Array
+                                (
+                                    [ID] => 380
+                                    [VALUE] => Europe/Rome (+2 часа)
+                                )
+
+                            [196] => Array
+                                (
+                                    [ID] => 381
+                                    [VALUE] => Europe/San_Marino (+2 часа)
+                                )
+
+                            [197] => Array
+                                (
+                                    [ID] => 382
+                                    [VALUE] => Europe/Sarajevo (+2 часа)
+                                )
+
+                            [198] => Array
+                                (
+                                    [ID] => 383
+                                    [VALUE] => Europe/Skopje (+2 часа)
+                                )
+
+                            [199] => Array
+                                (
+                                    [ID] => 384
+                                    [VALUE] => Europe/Stockholm (+2 часа)
+                                )
+
+                            [200] => Array
+                                (
+                                    [ID] => 385
+                                    [VALUE] => Europe/Tirane (+2 часа)
+                                )
+
+                            [201] => Array
+                                (
+                                    [ID] => 386
+                                    [VALUE] => Europe/Vaduz (+2 часа)
+                                )
+
+                            [202] => Array
+                                (
+                                    [ID] => 387
+                                    [VALUE] => Europe/Vatican (+2 часа)
+                                )
+
+                            [203] => Array
+                                (
+                                    [ID] => 388
+                                    [VALUE] => Europe/Vienna (+2 часа)
+                                )
+
+                            [204] => Array
+                                (
+                                    [ID] => 389
+                                    [VALUE] => Europe/Warsaw (+2 часа)
+                                )
+
+                            [205] => Array
+                                (
+                                    [ID] => 390
+                                    [VALUE] => Europe/Zagreb (+2 часа)
+                                )
+
+                            [206] => Array
+                                (
+                                    [ID] => 391
+                                    [VALUE] => Europe/Zurich (+2 часа)
+                                )
+
+                            [207] => Array
+                                (
+                                    [ID] => 392
+                                    [VALUE] => Asia/Aden (+3 часа)
+                                )
+
+                            [208] => Array
+                                (
+                                    [ID] => 393
+                                    [VALUE] => Asia/Amman (+3 часа)
+                                )
+
+                            [209] => Array
+                                (
+                                    [ID] => 394
+                                    [VALUE] => Asia/Baghdad (+3 часа)
+                                )
+
+                            [210] => Array
+                                (
+                                    [ID] => 395
+                                    [VALUE] => Asia/Bahrain (+3 часа)
+                                )
+
+                            [211] => Array
+                                (
+                                    [ID] => 396
+                                    [VALUE] => Asia/Beirut (+3 часа)
+                                )
+
+                            [212] => Array
+                                (
+                                    [ID] => 397
+                                    [VALUE] => Asia/Damascus (+3 часа)
+                                )
+
+                            [213] => Array
+                                (
+                                    [ID] => 398
+                                    [VALUE] => Asia/Famagusta (+3 часа)
+                                )
+
+                            [214] => Array
+                                (
+                                    [ID] => 399
+                                    [VALUE] => Asia/Gaza (+3 часа)
+                                )
+
+                            [215] => Array
+                                (
+                                    [ID] => 400
+                                    [VALUE] => Asia/Hebron (+3 часа)
+                                )
+
+                            [216] => Array
+                                (
+                                    [ID] => 401
+                                    [VALUE] => Asia/Jerusalem (+3 часа)
+                                )
+
+                            [217] => Array
+                                (
+                                    [ID] => 402
+                                    [VALUE] => Asia/Kuwait (+3 часа)
+                                )
+
+                            [218] => Array
+                                (
+                                    [ID] => 403
+                                    [VALUE] => Asia/Nicosia (+3 часа)
+                                )
+
+                            [219] => Array
+                                (
+                                    [ID] => 404
+                                    [VALUE] => Asia/Qatar (+3 часа)
+                                )
+
+                            [220] => Array
+                                (
+                                    [ID] => 405
+                                    [VALUE] => Asia/Riyadh (+3 часа)
+                                )
+
+                            [221] => Array
+                                (
+                                    [ID] => 406
+                                    [VALUE] => Europe/Athens (+3 часа)
+                                )
+
+                            [222] => Array
+                                (
+                                    [ID] => 407
+                                    [VALUE] => Europe/Bucharest (+3 часа)
+                                )
+
+                            [223] => Array
+                                (
+                                    [ID] => 408
+                                    [VALUE] => Europe/Chisinau (+3 часа)
+                                )
+
+                            [224] => Array
+                                (
+                                    [ID] => 409
+                                    [VALUE] => Europe/Helsinki (+3 часа)
+                                )
+
+                            [225] => Array
+                                (
+                                    [ID] => 410
+                                    [VALUE] => Europe/Istanbul (+3 часа)
+                                )
+
+                            [226] => Array
+                                (
+                                    [ID] => 411
+                                    [VALUE] => Europe/Kiev (+3 часа)
+                                )
+
+                            [227] => Array
+                                (
+                                    [ID] => 412
+                                    [VALUE] => Europe/Kirov (+3 часа)
+                                )
+
+                            [228] => Array
+                                (
+                                    [ID] => 413
+                                    [VALUE] => Europe/Mariehamn (+3 часа)
+                                )
+
+                            [229] => Array
+                                (
+                                    [ID] => 414
+                                    [VALUE] => Europe/Minsk (+3 часа)
+                                )
+
+                            [230] => Array
+                                (
+                                    [ID] => 415
+                                    [VALUE] => Europe/Moscow (+3 часа)
+                                )
+
+                            [231] => Array
+                                (
+                                    [ID] => 416
+                                    [VALUE] => Europe/Riga (+3 часа)
+                                )
+
+                            [232] => Array
+                                (
+                                    [ID] => 417
+                                    [VALUE] => Europe/Simferopol (+3 часа)
+                                )
+
+                            [233] => Array
+                                (
+                                    [ID] => 418
+                                    [VALUE] => Europe/Sofia (+3 часа)
+                                )
+
+                            [234] => Array
+                                (
+                                    [ID] => 419
+                                    [VALUE] => Europe/Tallinn (+3 часа)
+                                )
+
+                            [235] => Array
+                                (
+                                    [ID] => 420
+                                    [VALUE] => Europe/Uzhgorod (+3 часа)
+                                )
+
+                            [236] => Array
+                                (
+                                    [ID] => 421
+                                    [VALUE] => Europe/Vilnius (+3 часа)
+                                )
+
+                            [237] => Array
+                                (
+                                    [ID] => 422
+                                    [VALUE] => Europe/Volgograd (+3 часа)
+                                )
+
+                            [238] => Array
+                                (
+                                    [ID] => 423
+                                    [VALUE] => Europe/Zaporozhye (+3 часа)
+                                )
+
+                            [239] => Array
+                                (
+                                    [ID] => 424
+                                    [VALUE] => Indian/Antananarivo (+3 часа)
+                                )
+
+                            [240] => Array
+                                (
+                                    [ID] => 425
+                                    [VALUE] => Indian/Comoro (+3 часа)
+                                )
+
+                            [241] => Array
+                                (
+                                    [ID] => 426
+                                    [VALUE] => Indian/Mayotte (+3 часа)
+                                )
+
+                            [242] => Array
+                                (
+                                    [ID] => 427
+                                    [VALUE] => Asia/Baku (+4 часа)
+                                )
+
+                            [243] => Array
+                                (
+                                    [ID] => 428
+                                    [VALUE] => Asia/Dubai (+4 часа)
+                                )
+
+                            [244] => Array
+                                (
+                                    [ID] => 429
+                                    [VALUE] => Asia/Muscat (+4 часа)
+                                )
+
+                            [245] => Array
+                                (
+                                    [ID] => 430
+                                    [VALUE] => Asia/Tbilisi (+4 часа)
+                                )
+
+                            [246] => Array
+                                (
+                                    [ID] => 431
+                                    [VALUE] => Asia/Yerevan (+4 часа)
+                                )
+
+                            [247] => Array
+                                (
+                                    [ID] => 432
+                                    [VALUE] => Europe/Astrakhan (+4 часа)
+                                )
+
+                            [248] => Array
+                                (
+                                    [ID] => 433
+                                    [VALUE] => Europe/Samara (+4 часа)
+                                )
+
+                            [249] => Array
+                                (
+                                    [ID] => 434
+                                    [VALUE] => Europe/Saratov (+4 часа)
+                                )
+
+                            [250] => Array
+                                (
+                                    [ID] => 435
+                                    [VALUE] => Europe/Ulyanovsk (+4 часа)
+                                )
+
+                            [251] => Array
+                                (
+                                    [ID] => 436
+                                    [VALUE] => Indian/Mahe (+4 часа)
+                                )
+
+                            [252] => Array
+                                (
+                                    [ID] => 437
+                                    [VALUE] => Indian/Mauritius (+4 часа)
+                                )
+
+                            [253] => Array
+                                (
+                                    [ID] => 438
+                                    [VALUE] => Indian/Reunion (+4 часа)
+                                )
+
+                            [254] => Array
+                                (
+                                    [ID] => 439
+                                    [VALUE] => Asia/Kabul (+4.5 часа)
+                                )
+
+                            [255] => Array
+                                (
+                                    [ID] => 440
+                                    [VALUE] => Asia/Tehran (+4.5 часа)
+                                )
+
+                            [256] => Array
+                                (
+                                    [ID] => 441
+                                    [VALUE] => Asia/Aqtau (+5 часов)
+                                )
+
+                            [257] => Array
+                                (
+                                    [ID] => 442
+                                    [VALUE] => Asia/Aqtobe (+5 часов)
+                                )
+
+                            [258] => Array
+                                (
+                                    [ID] => 443
+                                    [VALUE] => Asia/Ashgabat (+5 часов)
+                                )
+
+                            [259] => Array
+                                (
+                                    [ID] => 444
+                                    [VALUE] => Asia/Atyrau (+5 часов)
+                                )
+
+                            [260] => Array
+                                (
+                                    [ID] => 445
+                                    [VALUE] => Asia/Dushanbe (+5 часов)
+                                )
+
+                            [261] => Array
+                                (
+                                    [ID] => 446
+                                    [VALUE] => Asia/Karachi (+5 часов)
+                                )
+
+                            [262] => Array
+                                (
+                                    [ID] => 447
+                                    [VALUE] => Asia/Oral (+5 часов)
+                                )
+
+                            [263] => Array
+                                (
+                                    [ID] => 448
+                                    [VALUE] => Asia/Qyzylorda (+5 часов)
+                                )
+
+                            [264] => Array
+                                (
+                                    [ID] => 449
+                                    [VALUE] => Asia/Samarkand (+5 часов)
+                                )
+
+                            [265] => Array
+                                (
+                                    [ID] => 450
+                                    [VALUE] => Asia/Tashkent (+5 часов)
+                                )
+
+                            [266] => Array
+                                (
+                                    [ID] => 451
+                                    [VALUE] => Asia/Yekaterinburg (+5 часов)
+                                )
+
+                            [267] => Array
+                                (
+                                    [ID] => 452
+                                    [VALUE] => Indian/Kerguelen (+5 часов)
+                                )
+
+                            [268] => Array
+                                (
+                                    [ID] => 453
+                                    [VALUE] => Indian/Maldives (+5 часов)
+                                )
+
+                            [269] => Array
+                                (
+                                    [ID] => 454
+                                    [VALUE] => Asia/Colombo (+5.5 часов)
+                                )
+
+                            [270] => Array
+                                (
+                                    [ID] => 455
+                                    [VALUE] => Asia/Kolkata (+5.5 часов)
+                                )
+
+                            [271] => Array
+                                (
+                                    [ID] => 456
+                                    [VALUE] => Asia/Kathmandu (+5.75 часов)
+                                )
+
+                            [272] => Array
+                                (
+                                    [ID] => 457
+                                    [VALUE] => Asia/Almaty (+6 часов)
+                                )
+
+                            [273] => Array
+                                (
+                                    [ID] => 458
+                                    [VALUE] => Asia/Bishkek (+6 часов)
+                                )
+
+                            [274] => Array
+                                (
+                                    [ID] => 459
+                                    [VALUE] => Asia/Dhaka (+6 часов)
+                                )
+
+                            [275] => Array
+                                (
+                                    [ID] => 460
+                                    [VALUE] => Asia/Omsk (+6 часов)
+                                )
+
+                            [276] => Array
+                                (
+                                    [ID] => 461
+                                    [VALUE] => Asia/Qostanay (+6 часов)
+                                )
+
+                            [277] => Array
+                                (
+                                    [ID] => 462
+                                    [VALUE] => Asia/Thimphu (+6 часов)
+                                )
+
+                            [278] => Array
+                                (
+                                    [ID] => 463
+                                    [VALUE] => Asia/Urumqi (+6 часов)
+                                )
+
+                            [279] => Array
+                                (
+                                    [ID] => 464
+                                    [VALUE] => Indian/Chagos (+6 часов)
+                                )
+
+                            [280] => Array
+                                (
+                                    [ID] => 465
+                                    [VALUE] => Asia/Yangon (+6.5 часов)
+                                )
+
+                            [281] => Array
+                                (
+                                    [ID] => 466
+                                    [VALUE] => Indian/Cocos (+6.5 часов)
+                                )
+
+                            [282] => Array
+                                (
+                                    [ID] => 467
+                                    [VALUE] => Asia/Bangkok (+7 часов)
+                                )
+
+                            [283] => Array
+                                (
+                                    [ID] => 468
+                                    [VALUE] => Asia/Barnaul (+7 часов)
+                                )
+
+                            [284] => Array
+                                (
+                                    [ID] => 469
+                                    [VALUE] => Asia/Ho_Chi_Minh (+7 часов)
+                                )
+
+                            [285] => Array
+                                (
+                                    [ID] => 470
+                                    [VALUE] => Asia/Hovd (+7 часов)
+                                )
+
+                            [286] => Array
+                                (
+                                    [ID] => 471
+                                    [VALUE] => Asia/Jakarta (+7 часов)
+                                )
+
+                            [287] => Array
+                                (
+                                    [ID] => 472
+                                    [VALUE] => Asia/Krasnoyarsk (+7 часов)
+                                )
+
+                            [288] => Array
+                                (
+                                    [ID] => 473
+                                    [VALUE] => Asia/Novokuznetsk (+7 часов)
+                                )
+
+                            [289] => Array
+                                (
+                                    [ID] => 474
+                                    [VALUE] => Asia/Novosibirsk (+7 часов)
+                                )
+
+                            [290] => Array
+                                (
+                                    [ID] => 475
+                                    [VALUE] => Asia/Phnom_Penh (+7 часов)
+                                )
+
+                            [291] => Array
+                                (
+                                    [ID] => 476
+                                    [VALUE] => Asia/Pontianak (+7 часов)
+                                )
+
+                            [292] => Array
+                                (
+                                    [ID] => 477
+                                    [VALUE] => Asia/Tomsk (+7 часов)
+                                )
+
+                            [293] => Array
+                                (
+                                    [ID] => 478
+                                    [VALUE] => Asia/Vientiane (+7 часов)
+                                )
+
+                            [294] => Array
+                                (
+                                    [ID] => 479
+                                    [VALUE] => Indian/Christmas (+7 часов)
+                                )
+
+                            [295] => Array
+                                (
+                                    [ID] => 480
+                                    [VALUE] => Asia/Brunei (+8 часов)
+                                )
+
+                            [296] => Array
+                                (
+                                    [ID] => 481
+                                    [VALUE] => Asia/Choibalsan (+8 часов)
+                                )
+
+                            [297] => Array
+                                (
+                                    [ID] => 482
+                                    [VALUE] => Asia/Hong_Kong (+8 часов)
+                                )
+
+                            [298] => Array
+                                (
+                                    [ID] => 483
+                                    [VALUE] => Asia/Irkutsk (+8 часов)
+                                )
+
+                            [299] => Array
+                                (
+                                    [ID] => 484
+                                    [VALUE] => Asia/Kuala_Lumpur (+8 часов)
+                                )
+
+                            [300] => Array
+                                (
+                                    [ID] => 485
+                                    [VALUE] => Asia/Kuching (+8 часов)
+                                )
+
+                            [301] => Array
+                                (
+                                    [ID] => 486
+                                    [VALUE] => Asia/Macau (+8 часов)
+                                )
+
+                            [302] => Array
+                                (
+                                    [ID] => 487
+                                    [VALUE] => Asia/Makassar (+8 часов)
+                                )
+
+                            [303] => Array
+                                (
+                                    [ID] => 488
+                                    [VALUE] => Asia/Manila (+8 часов)
+                                )
+
+                            [304] => Array
+                                (
+                                    [ID] => 489
+                                    [VALUE] => Asia/Shanghai (+8 часов)
+                                )
+
+                            [305] => Array
+                                (
+                                    [ID] => 490
+                                    [VALUE] => Asia/Singapore (+8 часов)
+                                )
+
+                            [306] => Array
+                                (
+                                    [ID] => 491
+                                    [VALUE] => Asia/Taipei (+8 часов)
+                                )
+
+                            [307] => Array
+                                (
+                                    [ID] => 492
+                                    [VALUE] => Asia/Ulaanbaatar (+8 часов)
+                                )
+
+                            [308] => Array
+                                (
+                                    [ID] => 493
+                                    [VALUE] => Asia/Chita (+9 часов)
+                                )
+
+                            [309] => Array
+                                (
+                                    [ID] => 494
+                                    [VALUE] => Asia/Dili (+9 часов)
+                                )
+
+                            [310] => Array
+                                (
+                                    [ID] => 495
+                                    [VALUE] => Asia/Jayapura (+9 часов)
+                                )
+
+                            [311] => Array
+                                (
+                                    [ID] => 496
+                                    [VALUE] => Asia/Khandyga (+9 часов)
+                                )
+
+                            [312] => Array
+                                (
+                                    [ID] => 497
+                                    [VALUE] => Asia/Pyongyang (+9 часов)
+                                )
+
+                            [313] => Array
+                                (
+                                    [ID] => 498
+                                    [VALUE] => Asia/Seoul (+9 часов)
+                                )
+
+                            [314] => Array
+                                (
+                                    [ID] => 499
+                                    [VALUE] => Asia/Tokyo (+9 часов)
+                                )
+
+                            [315] => Array
+                                (
+                                    [ID] => 500
+                                    [VALUE] => Asia/Yakutsk (+9 часов)
+                                )
+
+                            [316] => Array
+                                (
+                                    [ID] => 501
+                                    [VALUE] => Pacific/Palau (+9 часов)
+                                )
+
+                            [317] => Array
+                                (
+                                    [ID] => 502
+                                    [VALUE] => Asia/Ust-Nera (+10 часов)
+                                )
+
+                            [318] => Array
+                                (
+                                    [ID] => 503
+                                    [VALUE] => Asia/Vladivostok (+10 часов)
+                                )
+
+                            [319] => Array
+                                (
+                                    [ID] => 504
+                                    [VALUE] => Pacific/Chuuk (+10 часов)
+                                )
+
+                            [320] => Array
+                                (
+                                    [ID] => 505
+                                    [VALUE] => Pacific/Guam (+10 часов)
+                                )
+
+                            [321] => Array
+                                (
+                                    [ID] => 506
+                                    [VALUE] => Pacific/Port_Moresby (+10 часов)
+                                )
+
+                            [322] => Array
+                                (
+                                    [ID] => 507
+                                    [VALUE] => Pacific/Saipan (+10 часов)
+                                )
+
+                            [323] => Array
+                                (
+                                    [ID] => 508
+                                    [VALUE] => Asia/Magadan (+11 часов)
+                                )
+
+                            [324] => Array
+                                (
+                                    [ID] => 509
+                                    [VALUE] => Asia/Sakhalin (+11 часов)
+                                )
+
+                            [325] => Array
+                                (
+                                    [ID] => 510
+                                    [VALUE] => Asia/Srednekolymsk (+11 часов)
+                                )
+
+                            [326] => Array
+                                (
+                                    [ID] => 511
+                                    [VALUE] => Pacific/Bougainville (+11 часов)
+                                )
+
+                            [327] => Array
+                                (
+                                    [ID] => 512
+                                    [VALUE] => Pacific/Efate (+11 часов)
+                                )
+
+                            [328] => Array
+                                (
+                                    [ID] => 513
+                                    [VALUE] => Pacific/Guadalcanal (+11 часов)
+                                )
+
+                            [329] => Array
+                                (
+                                    [ID] => 514
+                                    [VALUE] => Pacific/Kosrae (+11 часов)
+                                )
+
+                            [330] => Array
+                                (
+                                    [ID] => 515
+                                    [VALUE] => Pacific/Norfolk (+11 часов)
+                                )
+
+                            [331] => Array
+                                (
+                                    [ID] => 516
+                                    [VALUE] => Pacific/Noumea (+11 часов)
+                                )
+
+                            [332] => Array
+                                (
+                                    [ID] => 517
+                                    [VALUE] => Pacific/Pohnpei (+11 часов)
+                                )
+
+                            [333] => Array
+                                (
+                                    [ID] => 518
+                                    [VALUE] => Asia/Anadyr (+12 часов)
+                                )
+
+                            [334] => Array
+                                (
+                                    [ID] => 519
+                                    [VALUE] => Asia/Kamchatka (+12 часов)
+                                )
+
+                            [335] => Array
+                                (
+                                    [ID] => 520
+                                    [VALUE] => Pacific/Auckland (+12 часов)
+                                )
+
+                            [336] => Array
+                                (
+                                    [ID] => 521
+                                    [VALUE] => Pacific/Fiji (+12 часов)
+                                )
+
+                            [337] => Array
+                                (
+                                    [ID] => 522
+                                    [VALUE] => Pacific/Funafuti (+12 часов)
+                                )
+
+                            [338] => Array
+                                (
+                                    [ID] => 523
+                                    [VALUE] => Pacific/Kwajalein (+12 часов)
+                                )
+
+                            [339] => Array
+                                (
+                                    [ID] => 524
+                                    [VALUE] => Pacific/Majuro (+12 часов)
+                                )
+
+                            [340] => Array
+                                (
+                                    [ID] => 525
+                                    [VALUE] => Pacific/Nauru (+12 часов)
+                                )
+
+                            [341] => Array
+                                (
+                                    [ID] => 526
+                                    [VALUE] => Pacific/Tarawa (+12 часов)
+                                )
+
+                            [342] => Array
+                                (
+                                    [ID] => 527
+                                    [VALUE] => Pacific/Wake (+12 часов)
+                                )
+
+                            [343] => Array
+                                (
+                                    [ID] => 528
+                                    [VALUE] => Pacific/Wallis (+12 часов)
+                                )
+
+                            [344] => Array
+                                (
+                                    [ID] => 529
+                                    [VALUE] => Pacific/Chatham (+12.75 часов)
+                                )
+
+                            [345] => Array
+                                (
+                                    [ID] => 530
+                                    [VALUE] => Pacific/Apia (+13 часов)
+                                )
+
+                            [346] => Array
+                                (
+                                    [ID] => 531
+                                    [VALUE] => Pacific/Enderbury (+13 часов)
+                                )
+
+                            [347] => Array
+                                (
+                                    [ID] => 532
+                                    [VALUE] => Pacific/Fakaofo (+13 часов)
+                                )
+
+                            [348] => Array
+                                (
+                                    [ID] => 533
+                                    [VALUE] => Pacific/Tongatapu (+13 часов)
+                                )
+
+                            [349] => Array
+                                (
+                                    [ID] => 534
+                                    [VALUE] => Pacific/Kiritimati (+14 часов)
+                                )
+
+                        )
+
+                    [title] => UF_CRM_APP_PL_LEAD_TIMEZONE_LIST
+                    [listLabel] => Временные зоны Phone Location
+                    [formLabel] => Временные зоны Phone Location
+                    [filterLabel] => UF_CRM_APP_PL_LEAD_TIMEZONE_LIST
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_1759265010559] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1759265010559
+                    [listLabel] => Текст
+                    [formLabel] => Текст
+                    [filterLabel] => Текст
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1759266659620] => Array
+                (
+                    [type] => url
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1759266659620
+                    [listLabel] => Ссылки на файлы из письма
+                    [formLabel] => Ссылки на файлы из письма
+                    [filterLabel] => Ссылки на файлы из письма
+                    [settings] => Array
+                        (
+                            [POPUP] => Y
+                            [SIZE] => 20
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                            [ROWS] => 1
+                        )
+
+                )
+
+            [UF_CRM_LEAD_1771456053375] => Array
+                (
+                    [type] => boolean
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_LEAD_1771456053375
+                    [listLabel] => 
+                    [formLabel] => РАБОТТАЛИ С КОМПАНИЕЙ SLOTEX?
+                    [filterLabel] => 
+                    [settings] => Array
+                        (
+                            [DEFAULT_VALUE] => 0
+                            [DISPLAY] => CHECKBOX
+                            [LABEL] => Array
+                                (
+                                    [0] => 
+                                    [1] => 
+                                )
+
+                            [LABEL_CHECKBOX] => РАБОТТАЛИ С КОМПАНИЕЙ SLOTEX?
+                        )
+
+                )
+
+            [UF_CRM_LEAD_1771456258546] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 3627
+                                    [VALUE] => цена
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 3634
+                                    [VALUE] => интерьерная отделка
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 3635
+                                    [VALUE] => мебельные фасады
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 3636
+                                    [VALUE] => интерьерные панели
+                                )
+
+                            [4] => Array
+                                (
+                                    [ID] => 3637
+                                    [VALUE] => экстерьерная отделка
+                                )
+
+                            [5] => Array
+                                (
+                                    [ID] => 3638
+                                    [VALUE] => износостойкость и долговечность
+                                )
+
+                        )
+
+                    [title] => UF_CRM_LEAD_1771456258546
+                    [listLabel] => 
+                    [formLabel] => ЧТО ДЛЯ ВАС НАИБОЛЕЕ АКТУАЛЬНО ПРИ РАБОТЕ С МАТЕРИАЛАМИ SLOTEX
+                    [filterLabel] => 
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 10
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_69CFC45979FE1] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 3680
+                                    [VALUE] => Юр. лицо / ИП
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 3681
+                                    [VALUE] => Физ. лицо
+                                )
+
+                        )
+
+                    [title] => UF_CRM_69CFC45979FE1
+                    [listLabel] => 
+                    [formLabel] => Тип заявителя
+                    [filterLabel] => 
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_LEAD_1775224726704] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_LEAD_1775224726704
+                    [listLabel] => 
+                    [formLabel] => text
+                    [filterLabel] => 
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_LEAD_ITS_ARTICLE_ID] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_LEAD_ITS_ARTICLE_ID
+                    [listLabel] => ID статьи в Базе Знаний
+                    [formLabel] => ID статьи в Базе Знаний
+                    [filterLabel] => UF_CRM_LEAD_ITS_ARTICLE_ID
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1782213351271] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 4521
+                                    [VALUE] => Отдел СЗФО (розница)
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 4522
+                                    [VALUE] => Отдел качества
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 4523
+                                    [VALUE] => Отдел проектных продаж HPL
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 4524
+                                    [VALUE] => Отдел логистики
+                                )
+
+                            [4] => Array
+                                (
+                                    [ID] => 4525
+                                    [VALUE] => Отдел дилеров
+                                )
+
+                            [5] => Array
+                                (
+                                    [ID] => 4526
+                                    [VALUE] => Другое
+                                )
+
+                        )
+
+                    [title] => UF_CRM_1782213351271
+                    [listLabel] => Направление обращения
+                    [formLabel] => Направление обращения
+                    [filterLabel] => Направление обращения
+                    [settings] => Array
+                        (
+                            [DISPLAY] => UI
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_1782214456402] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 4533
+                                    [VALUE] => Ответ клиенту
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 4534
+                                    [VALUE] => Создан заказ
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 4535
+                                    [VALUE] => Передано в отдел качества
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 4536
+                                    [VALUE] => Передано в отдел снабжения
+                                )
+
+                            [4] => Array
+                                (
+                                    [ID] => 4537
+                                    [VALUE] => Передано в отдел логистики
+                                )
+
+                            [5] => Array
+                                (
+                                    [ID] => 4538
+                                    [VALUE] => Клиент не ответил
+                                )
+
+                            [6] => Array
+                                (
+                                    [ID] => 4539
+                                    [VALUE] => Отказ клиента
+                                )
+
+                            [7] => Array
+                                (
+                                    [ID] => 4540
+                                    [VALUE] => Спам
+                                )
+
+                            [8] => Array
+                                (
+                                    [ID] => 4542
+                                    [VALUE] => Не дозвонились
+                                )
+
+                            [9] => Array
+                                (
+                                    [ID] => 4541
+                                    [VALUE] => Не наш профиль
+                                )
+
+                        )
+
+                    [title] => UF_CRM_1782214456402
+                    [listLabel] => Результат обращения
+                    [formLabel] => Результат обращения
+                    [filterLabel] => Результат обращения
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_1782214552801] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1782214552801
+                    [listLabel] => Дата и время передачи заявки в подразделение
+                    [formLabel] => Дата и время передачи заявки в подразделение
+                    [filterLabel] => Дата и время передачи заявки в подразделение
+                    [settings] => Array
+                        (
+                            [DEFAULT_VALUE] => Array
+                                (
+                                    [TYPE] => NONE
+                                    [VALUE] => 
+                                )
+
+                            [USE_SECOND] => Y
+                            [USE_TIMEZONE] => N
+                        )
+
+                )
+
+            [UF_CRM_1782214587233] => Array
+                (
+                    [type] => datetime
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1782214587233
+                    [listLabel] => Крайний срок ответа клиенту
+                    [formLabel] => Крайний срок ответа клиенту
+                    [filterLabel] => Крайний срок ответа клиенту
+                    [settings] => Array
+                        (
+                            [DEFAULT_VALUE] => Array
+                                (
+                                    [TYPE] => NONE
+                                    [VALUE] => 
+                                )
+
+                            [USE_SECOND] => Y
+                            [USE_TIMEZONE] => N
+                        )
+
+                )
+
+            [UF_CRM_1782313209678] => Array
+                (
+                    [type] => enumeration
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [ID] => 4585
+                                    [VALUE] => Не проверено
+                                )
+
+                            [1] => Array
+                                (
+                                    [ID] => 4586
+                                    [VALUE] => Высокая
+                                )
+
+                            [2] => Array
+                                (
+                                    [ID] => 4587
+                                    [VALUE] => Средняя
+                                )
+
+                            [3] => Array
+                                (
+                                    [ID] => 4588
+                                    [VALUE] => Низкая
+                                )
+
+                        )
+
+                    [title] => UF_CRM_1782313209678
+                    [listLabel] => AI-уверенность классификации
+                    [formLabel] => AI-уверенность классификации
+                    [filterLabel] => AI-уверенность классификации
+                    [settings] => Array
+                        (
+                            [DISPLAY] => LIST
+                            [LIST_HEIGHT] => 1
+                            [CAPTION_NO_VALUE] => 
+                            [SHOW_NO_VALUE] => Y
+                        )
+
+                )
+
+            [UF_CRM_1782313232933] => Array
+                (
+                    [type] => boolean
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1782313232933
+                    [listLabel] => Требуется ручная классификация
+                    [formLabel] => Требуется ручная классификация
+                    [filterLabel] => Требуется ручная классификация
+                    [settings] => Array
+                        (
+                            [DEFAULT_VALUE] => 0
+                            [DISPLAY] => CHECKBOX
+                            [LABEL] => Array
+                                (
+                                    [0] => 
+                                    [1] => 
+                                )
+
+                            [LABEL_CHECKBOX] => Array
+                                (
+                                    [ru] => Требуется ручная классификация
+                                    [en] => Требуется ручная классификация
+                                )
+
+                        )
+
+                )
+
+            [UF_CRM_1782313269462] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 1
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1782313269462
+                    [listLabel] => AI-пояснение классификации
+                    [formLabel] => AI-пояснение классификации
+                    [filterLabel] => AI-пояснение классификации
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785676601] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785676601
+                    [listLabel] => roistat
+                    [formLabel] => roistat
+                    [filterLabel] => roistat
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988114] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988114
+                    [listLabel] => Город
+                    [formLabel] => Город
+                    [filterLabel] => Город
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988506] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988506
+                    [listLabel] => Дилер
+                    [formLabel] => Дилер
+                    [filterLabel] => Дилер
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988556] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988556
+                    [listLabel] => Продукт
+                    [formLabel] => Продукт
+                    [filterLabel] => Продукт
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988595] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988595
+                    [listLabel] => roistat_visit
+                    [formLabel] => roistat_visit
+                    [filterLabel] => roistat_visit
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988615] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988615
+                    [listLabel] => Запись разговора
+                    [formLabel] => Запись разговора
+                    [filterLabel] => Запись разговора
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988637] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988637
+                    [listLabel] => Комментарий
+                    [formLabel] => Комментарий
+                    [filterLabel] => Комментарий
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 10
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+            [UF_CRM_1785988660] => Array
+                (
+                    [type] => string
+                    [isRequired] => 
+                    [isReadOnly] => 
+                    [isImmutable] => 
+                    [isMultiple] => 
+                    [isDynamic] => 1
+                    [title] => UF_CRM_1785988660
+                    [listLabel] => Запрос
+                    [formLabel] => Запрос
+                    [filterLabel] => Запрос
+                    [settings] => Array
+                        (
+                            [SIZE] => 20
+                            [ROWS] => 1
+                            [REGEXP] => 
+                            [MIN_LENGTH] => 0
+                            [MAX_LENGTH] => 0
+                            [DEFAULT_VALUE] => 
+                        )
+
+                )
+
+        )
+
+    [time] => Array
+        (
+            [start] => 1785991085
+            [finish] => 1785991085.6665
+            [duration] => 0.66651797294617
+            [processing] => 0
+            [date_start] => 2026-08-06T07:38:05+03:00
+            [date_finish] => 2026-08-06T07:38:05+03:00
+        )
+
+)
