@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Bitrix24;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class LeadService
@@ -62,4 +63,71 @@ class LeadService
         $response = $this->client->call('crm.lead.fields');
         return $response['result'] ?? [];
     }
+
+    /** Поиск дублирования лида по полям  */
+    function findLeadDuplicatesWithFilter(array $phones): bool
+    {
+        $additionalFilter = [
+            '>DATE_CREATE'   => '2026-01-01T00:00:00+03:00', // Только созданные в 2026 году
+            'STATUS_SEMANTIC_ID' => 'P',                     // Только в промежуточных/активных стадиях (не закрытые)             // Можно раскомментировать для фильтра по ответственному
+        ];
+
+
+        // Шаг 1: Ищем ID дубликатов через специализированный метод
+        $dupResult = $this->client->call('crm.duplicate.findbycomm', [
+            'entity_type' => 'LEAD',
+            'type'        => 'PHONE',
+            'values'      => $phones
+        ]);
+
+        Log::debug('$dupResult');
+        Log::debug($dupResult);
+
+        // Проверяем, вернул ли метод совпадения по лидам
+        if (empty($dupResult['result']['LEAD'])) {
+            return false; // Дубликатов нет вообще
+        }
+
+        $leadIds = $dupResult['result']['LEAD'];
+
+        // Шаг 2: Формируем запрос к crm.lead.list для применения дополнительных параметров
+        $finalFilter = array_merge(
+            ['=ID' => $leadIds], // Передаем ID найденных дублей
+            $additionalFilter    // Накладываем ваши параметры (дата, стадия, ответственный и т.д.)
+        );
+
+        $leadsResult = $this->client->call('crm.lead.list', [
+            'filter' => $finalFilter,
+            'select' => ['ID', 'TITLE', 'STATUS_ID', 'DATE_CREATE', 'ASSIGNED_BY_ID'] // Нужные вам поля
+        ]);
+
+        Log::debug('$leadsResult');
+        Log::debug($leadsResult);
+
+        return ! empty($leadsResult['result']);
+    }
+
+
+    function findLeadDuplicatePhone(string $phone, ?string $email): array
+    {
+        $date = Carbon::now('Europe/Moscow')->subDay();
+        $finalFilter = [
+            '>DATE_CREATE'   => $date->toAtomString(), // За последние сутки
+//            'STATUS_SEMANTIC_ID' => 'P',
+            'SOURCE_ID' => 'WEB',
+            'PHONE' => $phone,
+//            'EMAIL' => $email,
+        ];
+
+        $leadsResult = $this->client->call('crm.lead.list', [
+            'filter' => $finalFilter,
+            'select' => ['ID'] // Нужные вам поля
+        ]);
+
+        Log::debug('$leadsResult');
+        Log::debug($leadsResult);
+
+        return $leadsResult['result'] ?? [];
+    }
+
 }

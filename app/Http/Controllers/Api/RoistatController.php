@@ -67,6 +67,7 @@ class RoistatController extends Controller
 
         $status = $data['status'] ?? 'ACTIVE';
         $isMissed = in_array($status, ['NOANSWER', 'BUSY', 'CANCEL', 'CONGESTION', 'CHANUNAVAIL', 'DONTCALL', 'TORTURE']);
+        $isDone = in_array($status, ['ANSWER']);
 
         // ✅ Проверяем, есть ли уже данные в сессии
         $sessionKey = "roistat_call_{$callId}";
@@ -80,22 +81,23 @@ class RoistatController extends Controller
                 'is_missed' => $isMissed,
             ]);
 
-            // Создаем лид с учетом статуса
-            $fields = $this->prepareLeadData($data, $isMissed);
-            $leadId = $this->leadService->create($fields);
-
-            if (!$leadId) {
-                Log::error('❌ Не удалось создать лид');
-                return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
-            }
-
             // Для неотвеченных сделка не создается
          /*   file_put_content(
                 'test.log', json_encode($data)
             );*/
             $dealId = null;
-            if (!$isMissed) {
-                $dealId = $this->createDealFromLead($leadId, $data);
+            if ($isMissed || $isDone) {
+
+                // Создаем лид с учетом статуса
+                $fields = $this->prepareLeadData($data, $isMissed);
+                $leadId = $this->leadService->create($fields);
+
+                if (!$leadId) {
+                    Log::error('❌ Не удалось создать лид');
+                    return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
+                }
+
+                $dealId = $this->createDealFromLead($leadId, $fields, $isMissed);
             }
 
             // ✅ Сохраняем в сессию
@@ -188,23 +190,41 @@ class RoistatController extends Controller
             }
         }
 
-        $mergedData = array_merge($data, $parsedData);
-        $mergedData['custom_fields'] = $parsedData;
 
-        $leadId = $this->createLeadFromForm($mergedData);
+        $leads = $this->leadService->findLeadDuplicatePhone(
+            phone: $data['phone']?? '',
+            email: $data['email']?? '',
+        );
 
-        if (!$leadId) {
-            Log::error('❌ Не удалось создать лид из формы');
-            return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
+
+        Log::debug($leads);
+        if (count($leads) < 1)
+         //  Проверить лид на дублирование
+        {
+            $mergedData = array_merge($data, $parsedData);
+            $mergedData['custom_fields'] = $parsedData;
+            $leadId = $this->createLeadFromForm($mergedData);
+
+            if (!$leadId) {
+                Log::error('❌ Не удалось создать лид из формы');
+                return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
+            }
+
+            $dealId = $this->createDealFromLeadForm($leadId, $mergedData);
+        } else {
+            $lead = array_first($leads);
+            $leadId = $lead['ID'];
+            return response()->json([
+                'status' => 'success',
+                'lead_id' => $leadId ,
+            ]);
         }
-
-        $dealId = $this->createDealFromLead($leadId, $mergedData);
 
         return response()->json([
             'status' => 'success',
-            'lead_id' => $leadId,
-            'deal_id' => $dealId,
-            'order_id' => $dealId,
+            'lead_id' => $leadId ,
+            'deal_id' => $dealId ,
+            'order_id' => $dealId ,
         ]);
     }
 
@@ -381,8 +401,16 @@ class RoistatController extends Controller
         return $fields;
     }
 
+
+
+    // C6:UC_S9LHTU - заявка с сайта
+    //C6:UC_41XOVC -  принятый звонок
     private function createDealFromLead(int $leadId, array $data, bool $isMissed = false): ?int
     {
+        Log::debug('createDealFromLead');
+        Log::debug($data);
+        Log::debug($leadId);
+        Log::debug($isMissed);
         $city = $data['UF_CRM_1786432965'] ?? '';
         $dealer = $data['UF_CRM_1786433087'] ?? '';
         $product = $data['UF_CRM_1786433126'] ?? '';
@@ -392,6 +420,51 @@ class RoistatController extends Controller
         $phone = $data['PHONE'][0]['VALUE'] ?? '';
         $name = $data['NAME'] ?? 'Клиент';
         $title = $data['TITLE'] ?? sprintf('Сделка: %s %s', $name, $phone);
+
+//        if (empty($product) && isset($data['landing_page'])) {
+//            $landingPage = $data['landing_page'] ?? '';
+//            $product = $this->getProductFromLanding($landingPage);
+//        }
+
+//        if (empty($city)) {
+//            $city = $data['DEALER_CITY'] ?? '';
+//            $dealer = $data['DEALER_NAME'] ?? '';
+//        }
+
+        $fields = [
+            'TITLE' => $title,
+            'ASSIGNED_BY_ID' => $this->getResponsibleId($city),
+            'CATEGORY_ID' => 6,
+            'STAGE_ID' =>  $isMissed ? 'C6:NEW' : 'C6:UC_41XOVC',
+            'SOURCE_ID' => 'CALL',
+            'LEAD_ID' => $leadId,
+//            'PHONE' => $phone,
+            'COMMENTS' => "Создана из лида #{$leadId}\nГород: " . ($city ?: 'Не указан') . "\nДилер: " . ($dealer ?: 'Не указан') . "\nПродукт: " . ($product ?: 'unknown'),
+            'UF_CRM_1786434253' => $city,
+            'UF_CRM_1786434296' => $dealer,
+            'UF_CRM_1786434320' => $product,
+            'UF_CRM_1785827564' => $visitId,
+            'UF_CRM_1786434413' => $comment,
+            'UF_CRM_1786434431' => $request,
+        ];
+
+        return $this->dealService->create($fields);
+    }
+
+
+    private function createDealFromLeadForm(int $leadId, array $data): ?int
+    {
+        Log::debug('createDealFromLeadForm');
+        Log::debug($data);
+        Log::debug($leadId);
+        $city = $data['UF_CRM_1786432965'] ?? '';
+        $dealer = $data['UF_CRM_1786433087'] ?? '';
+        $product = $data['UF_CRM_1786433126'] ?? '';
+        $visitId = $data['UF_CRM_1785827518'] ?? '';
+        $comment = $data['text'] ?? $data['comment'] ?? '';
+        $request = $data['UF_CRM_1786433238'] ?? '';
+        $phone = $data['phone'] ?? '';
+        $name = $data['name'] ?? 'Клиент';
 
         if (empty($product) && isset($data['landing_page'])) {
             $landingPage = $data['landing_page'] ?? '';
@@ -404,8 +477,7 @@ class RoistatController extends Controller
         }
 
         $fields = [
-
-            'TITLE' => $title,
+            'TITLE' => sprintf('Сделка: %s %s', $name, $phone),
             'ASSIGNED_BY_ID' => $this->getResponsibleId($city),
             'CATEGORY_ID' => 6,
             'STAGE_ID' => 'C6:NEW',
@@ -425,6 +497,7 @@ class RoistatController extends Controller
 
         return $this->dealService->create($fields);
     }
+
 
     private function getDealerByCallee(string $callee): array
     {
@@ -478,7 +551,3 @@ class RoistatController extends Controller
         return $map[$city] ?? 1410;
     }
 }
-
-// C6:UC_S9LHTU - заявка с сайта
-//C6:UC_41XOVC -  принятый звонок
-

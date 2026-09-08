@@ -6,10 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Jobs\ProcessRoistatCallJob;
 use App\Jobs\ProcessRoistatFormJob;
 use App\Jobs\ProcessRoistatNotificationJob;
+use App\Services\Bitrix24\DealService;
+use App\Services\Bitrix24\LeadService;
 use Illuminate\Http\Request;
 
 class TestRoistatController extends Controller
 {
+    private LeadService $leadService;
+    private DealService $dealService;
+
+    public function __construct(LeadService $leadService, DealService $dealService)
+    {
+        $this->leadService = $leadService;
+        $this->dealService = $dealService;
+    }
+
     /**
      * Эмуляция звонка (во время соединения)
      */
@@ -127,7 +138,7 @@ class TestRoistatController extends Controller
     public function simulateNotification(Request $request)
     {
         $event = $request->get('event', 'proxy_lead_created');
-        
+
         $notifications = [
             'proxy_lead_created' => [
                 'notification_event' => 'proxy_lead_created',
@@ -173,4 +184,14 @@ class TestRoistatController extends Controller
             'data' => $data,
         ]);
     }
+
+    public function test()
+    {
+     return  $this->leadService->findLeadDuplicatePhone(
+            '71111111111',
+         'phone',
+        );
+    }
+
+
 }

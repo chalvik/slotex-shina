@@ -10,4 +10,6 @@ Route::prefix('roistat')->group(function () {
     //Выгрузка данных по запросу Roistat (для "Своя CRM")
     Route::get('/export', [RoistatExportController::class, 'handleExport']);
     Route::get('/test', [RoistatExportController::class, 'handleExport2']);
+    Route::get('/test2', [\App\Http\Controllers\Api\TestRoistatController::class, 'test']);
+
 });

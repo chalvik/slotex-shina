@@ -152,7 +152,7 @@ class RoistatExportController extends Controller
 
         return [
             'orders' => $orders,
-            'statusess' => $this->getStatuses(),
+            'statuses' => $this->getStatuses(),
             'fields' => $this->getFields(),
         ///'managers' => $this->getManagers(),
             'pagination' => [
