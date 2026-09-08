@@ -1,0 +1,49 @@
+services:
+  nginx:
+    image: nginx:1.24
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - .:/var/app/
+      - ./.docker/logs/nginx/:/var/log/nginx
+      - ./.docker/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./.docker
+    restart: unless-stopped
+    working_dir: /var/app
+    volumes:
+      - ./.docker/php/config/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - .:/var/app/
+      - ./.docker/config/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#    extra_hosts:
+#      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:7.4.0-alpine
+    restart: unless-stopped
+
+  db:
+    image: mysql:latest
+    restart: unless-stopped
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - db_volume:/var/lib/mysql
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      MYSQL_ROOT_PASSWORD: local
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+  db_volume:

@@ -1,0 +1,23 @@
+  GNU nano 6.2                                                                                     laravel.log
+[2026-09-08 08:44:02] local.INFO: 🔍 Roistat webhook received {
+"data":
+{"id":"19749",
+"caller":"79885784331",
+"callee":"78612982710",
+"visit_id":null,
+"marker":"duco_краснодар",
+"order_id":null,
+"date":"2026-09>
+[2026-09-08 08:44:02] local.INFO: 📞 Первый запрос (во время звонка) {"call_id":"19749","status":"ACTIVE","is_missed":false}
+
+
+[2026-09-08 08:44:15] local.DEBUG: Bitrix24 API request {
+"method":"crm.deal.add","url":"https://b.slotex.net/rest/1410/9znuzevaunt3uijq/crm.deal.add.json","params":{"fields":{"TITLE":"📞 Неотвеченный зво>
+
+
+[2026-09-08 08:58:17] local.INFO: 🔍 Roistat webhook received
+{"data":{
+"title":"Заявка с лендинга hpl",
+"text":"test","name":"Alextest",
+"phone":"79885784331","email":"chernogoraev@ya.ru","data":"{\"UF_CRM>
+[2026-09-08 08:58:17] local.INFO: 📝 Обработка формы {"visit_id":"unknown","name":"Alextest","has_data":"yes"}
