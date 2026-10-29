@@ -98,29 +98,37 @@ class RoistatController extends Controller
                 }
 
                 $dealId = $this->createDealFromLead($leadId, $fields, $isMissed);
+
+                // ✅ Сохраняем в сессию
+                Session::put($sessionKey, [
+                    'lead_id' => $leadId,
+                    'deal_id' => $dealId,
+                    'status' => $status,
+                    'is_missed' => $isMissed,
+                    'created_at' => now()->toDateTimeString(),
+                ]);
+
+                Log::info('✅ Данные сохранены в сессию', [
+                    'call_id' => $callId,
+                    'lead_id' => $leadId,
+                    'deal_id' => $dealId,
+                ]);
+
+                return response()->json([
+                    'status' => 'success',
+                    'lead_id' => $leadId,
+                    'deal_id' => $dealId,
+                    'message' => $isMissed ? 'Missed call, lead created' : 'Lead and deal created',
+                ]);
+            } else {
+
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'call status not found',
+                ]);
+
             }
 
-            // ✅ Сохраняем в сессию
-            Session::put($sessionKey, [
-                'lead_id' => $leadId,
-                'deal_id' => $dealId,
-                'status' => $status,
-                'is_missed' => $isMissed,
-                'created_at' => now()->toDateTimeString(),
-            ]);
-
-            Log::info('✅ Данные сохранены в сессию', [
-                'call_id' => $callId,
-                'lead_id' => $leadId,
-                'deal_id' => $dealId,
-            ]);
-
-            return response()->json([
-                'status' => 'success',
-                'lead_id' => $leadId,
-                'deal_id' => $dealId,
-                'message' => $isMissed ? 'Missed call, lead created' : 'Lead and deal created',
-            ]);
         }
 
         // 🔄 ВТОРОЙ ЗАПРОС (после звонка)
@@ -212,7 +220,9 @@ class RoistatController extends Controller
 
             $dealId = $this->createDealFromLeadForm($leadId, $mergedData);
         } else {
-            $lead = array_first($leads);
+            $lead = reset($leads);
+            Log::debug('$lead');
+            Log::debug($lead);
             $leadId = $lead['ID'];
             return response()->json([
                 'status' => 'success',
