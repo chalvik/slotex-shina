@@ -102,10 +102,9 @@ class RoistatFormHandler
 
     private function buildSourceDescription(array $data): string
     {
-        $marker = $data['marker'] ?? 'Неизвестен';
         $parts = [
             '📝 Заявка с лендинга',
-            "Источник:".$marker,
+            "Источник: {$data['marker'] ?? 'Неизвестен'}",
         ];
 
         if (!empty($data['domain'])) {
@@ -125,15 +124,15 @@ class RoistatFormHandler
     {
         $comments = [
             "📋 Информация о заявке",
-            "Дата:". $data['date'] ?? date('Y-m-d H:i:s'),
-            "IP:". $data['ip'] ?? '—',
-            "Страна:". $data['country'] ?? '—',
-            "Город:". $data['city'] ?? '—',
-            "Страница:". $data['landing_page'] ?? '—',
+            "Дата: {$data['date'] ?? date('Y-m-d H:i:s')}",
+            "IP: {$data['ip'] ?? '—'}",
+            "Страна: {$data['country'] ?? '—'}",
+            "Город: {$data['city'] ?? '—'}",
+            "Страница: {$data['landing_page'] ?? '—'}",
         ];
 
         if (!empty($data['comment'])) {
-            $comments[] = "Комментарий:". $data['comment'];
+            $comments[] = "Комментарий: {$data['comment']}";
         }
 
         return implode("\n", $comments);
