@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Bitrix24;
 
 use Carbon\Carbon;
@@ -18,7 +19,7 @@ class LeadService
         Log::info('➡️ LeadService::create', ['fields' => $fields]);
 
         // To Do product duco
-        if ($fields['UF_CRM_1786433126'] !== 'duco' ) {
+        if ($fields['UF_CRM_1786433126'] !== 'duco') {
             $response = $this->client->call('crm.lead.add', ['fields' => $fields]);
 
             if (isset($response['error'])) {
@@ -27,11 +28,13 @@ class LeadService
                     'error_description' => $response['error_description'] ?? '',
                     'fields' => $fields,
                 ]);
+
                 return null;
             }
 
             Log::info('✅ Lead created', ['lead_id' => $response['result'] ?? null]);
         }
+
         return $response['result'] ?? null;
     }
 
@@ -51,33 +54,35 @@ class LeadService
                 'error_description' => $response['error_description'] ?? '',
                 'fields' => $fields,
             ]);
+
             return false;
         }
 
         Log::info('✅ Lead updated', ['lead_id' => $leadId]);
+
         return true;
     }
 
     public function getFields(): array
     {
         $response = $this->client->call('crm.lead.fields');
+
         return $response['result'] ?? [];
     }
 
     /** Поиск дублирования лида по полям  */
-    function findLeadDuplicatesWithFilter(array $phones): bool
+    public function findLeadDuplicatesWithFilter(array $phones): bool
     {
         $additionalFilter = [
-            '>DATE_CREATE'   => '2026-01-01T00:00:00+03:00', // Только созданные в 2026 году
+            '>DATE_CREATE' => '2026-01-01T00:00:00+03:00', // Только созданные в 2026 году
             'STATUS_SEMANTIC_ID' => 'P',                     // Только в промежуточных/активных стадиях (не закрытые)             // Можно раскомментировать для фильтра по ответственному
         ];
-
 
         // Шаг 1: Ищем ID дубликатов через специализированный метод
         $dupResult = $this->client->call('crm.duplicate.findbycomm', [
             'entity_type' => 'LEAD',
-            'type'        => 'PHONE',
-            'values'      => $phones
+            'type' => 'PHONE',
+            'values' => $phones,
         ]);
 
         Log::debug('$dupResult');
@@ -98,7 +103,7 @@ class LeadService
 
         $leadsResult = $this->client->call('crm.lead.list', [
             'filter' => $finalFilter,
-            'select' => ['ID', 'TITLE', 'STATUS_ID', 'DATE_CREATE', 'ASSIGNED_BY_ID'] // Нужные вам поля
+            'select' => ['ID', 'TITLE', 'STATUS_ID', 'DATE_CREATE', 'ASSIGNED_BY_ID'], // Нужные вам поля
         ]);
 
         Log::debug('$leadsResult');
@@ -107,21 +112,20 @@ class LeadService
         return ! empty($leadsResult['result']);
     }
 
-
-    function findLeadDuplicatePhone(string $phone, ?string $email): array
+    public function findLeadDuplicatePhone(string $phone, ?string $email): array
     {
         $date = Carbon::now('Europe/Moscow')->subDay();
         $finalFilter = [
-            '>DATE_CREATE'   => $date->toAtomString(), // За последние сутки
-//            'STATUS_SEMANTIC_ID' => 'P',
+            '>DATE_CREATE' => $date->toAtomString(), // За последние сутки
+            //            'STATUS_SEMANTIC_ID' => 'P',
             'SOURCE_ID' => 'WEB',
             'PHONE' => $phone,
-//            'EMAIL' => $email,
+            //            'EMAIL' => $email,
         ];
 
         $leadsResult = $this->client->call('crm.lead.list', [
             'filter' => $finalFilter,
-            'select' => ['ID'] // Нужные вам поля
+            'select' => ['ID'], // Нужные вам поля
         ]);
 
         Log::debug('$leadsResult');
@@ -129,5 +133,4 @@ class LeadService
 
         return $leadsResult['result'] ?? [];
     }
-
 }

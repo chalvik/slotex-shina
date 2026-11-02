@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class TestRoistatController extends Controller
 {
     private LeadService $leadService;
+
     private DealService $dealService;
 
     public function __construct(LeadService $leadService, DealService $dealService)
@@ -187,11 +188,9 @@ class TestRoistatController extends Controller
 
     public function test()
     {
-     return  $this->leadService->findLeadDuplicatePhone(
+        return $this->leadService->findLeadDuplicatePhone(
             '71111111111',
-         'phone',
+            'phone',
         );
     }
-
-
 }

@@ -2,18 +2,18 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Services\Bitrix24\Bitrix24Service;
-use App\Services\Bitrix24\LeadService;
 use App\Services\Bitrix24\DealService;
+use App\Services\Bitrix24\LeadService;
 use App\Services\Bitrix24\UserService;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->app->singleton(Bitrix24Service::class, function ($app) {
-            return new Bitrix24Service();
+            return new Bitrix24Service;
         });
 
         $this->app->singleton(LeadService::class, function ($app) {
@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
             return new UserService($app->make(Bitrix24Service::class));
         });
     }
+
     public function boot(): void
     {
         //

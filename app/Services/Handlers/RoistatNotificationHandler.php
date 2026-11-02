@@ -33,6 +33,7 @@ class RoistatNotificationHandler
     private function handleLeadCreated(array $data): bool
     {
         Log::info('✅ Lead successfully created in Roistat', ['lead_id' => $data['lead_id'] ?? 'unknown']);
+
         return true;
     }
 
@@ -41,6 +42,7 @@ class RoistatNotificationHandler
         Log::warning('⚠️ Roistat lead not sent to CRM', [
             'error' => $data['error'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -50,6 +52,7 @@ class RoistatNotificationHandler
             'lead_id' => $data['lead_id'] ?? 'unknown',
             'duplicate_lead_id' => $data['duplicate_lead_id'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -59,6 +62,7 @@ class RoistatNotificationHandler
             'caller' => $data['caller'] ?? 'unknown',
             'callee' => $data['callee'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -68,6 +72,7 @@ class RoistatNotificationHandler
             'name' => $data['name'] ?? 'unknown',
             'phone' => $data['phone'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -78,6 +83,7 @@ class RoistatNotificationHandler
             'leads' => $data['leads'] ?? 0,
             'conversion' => $data['conversion'] ?? '0%',
         ]);
+
         return true;
     }
 
@@ -86,6 +92,7 @@ class RoistatNotificationHandler
         Log::warning('📉 Roistat call tracking accuracy low', [
             'accuracy' => $data['accuracy'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -94,6 +101,7 @@ class RoistatNotificationHandler
         Log::critical('🚨 Roistat numbers will be removed', [
             'days_until' => $data['days_until'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -103,6 +111,7 @@ class RoistatNotificationHandler
             'rate' => $data['rate'] ?? 'unknown',
             'manager' => $data['manager'] ?? 'unknown',
         ]);
+
         return true;
     }
 
@@ -111,6 +120,7 @@ class RoistatNotificationHandler
         Log::info('❓ Unknown Roistat notification event', [
             'event' => $data['notification_event'] ?? 'unknown',
         ]);
+
         return true;
     }
 }

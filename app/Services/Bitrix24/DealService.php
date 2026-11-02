@@ -25,10 +25,12 @@ class DealService
                 'error_description' => $response['error_description'] ?? '',
                 'fields' => $fields,
             ]);
+
             return null;
         }
 
         Log::info('✅ Deal created', ['deal_id' => $response['result'] ?? null]);
+
         return $response['result'] ?? null;
     }
 
@@ -48,10 +50,12 @@ class DealService
                 'error_description' => $response['error_description'] ?? '',
                 'fields' => $fields,
             ]);
+
             return false;
         }
 
         Log::info('✅ Deal updated', ['deal_id' => $dealId]);
+
         return true;
     }
 
@@ -98,6 +102,7 @@ class DealService
                 'error' => $response['error'],
                 'error_description' => $response['error_description'] ?? '',
             ]);
+
             return [];
         }
 

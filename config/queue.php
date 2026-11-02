@@ -1,5 +1,8 @@
 <?php
 
+use App\Jobs\ProcessRoistatCallJob;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+
 return [
     'default' => env('QUEUE_CONNECTION', 'sync'),
 
@@ -18,7 +21,7 @@ return [
         'rabbitmq' => [
             'driver' => 'rabbitmq',
             'queue' => env('RABBITMQ_QUEUE', 'default'),
-            'connection' => PhpAmqpLib\Connection\AMQPStreamConnection::class,
+            'connection' => AMQPStreamConnection::class,
 
             'hosts' => [
                 [
@@ -37,7 +40,7 @@ return [
                     'durable' => true,
                 ],
                 'queue' => [
-                    'job' => App\Jobs\ProcessRoistatCallJob::class,
+                    'job' => ProcessRoistatCallJob::class,
                 ],
             ],
         ],

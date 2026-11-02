@@ -47,6 +47,7 @@ class Bitrix24Service
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
+
             return ['error' => $e->getMessage()];
         }
     }

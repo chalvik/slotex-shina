@@ -19,17 +19,19 @@ class RoistatCallHandler
         $status = $data['status'] ?? 'ACTIVE';
 
         // Обрабатываем только отвеченные звонки
-        if (!in_array($status, ['ANSWER', 'ACTIVE'])) {
+        if (! in_array($status, ['ANSWER', 'ACTIVE'])) {
             Log::info('Call not answered, skipping', [
                 'call_id' => $data['id'] ?? 'unknown',
                 'status' => $status,
             ]);
+
             return true;
         }
 
         $phone = $data['caller'] ?? '';
-        if (!$phone) {
+        if (! $phone) {
             Log::warning('No caller phone', ['data' => $data]);
+
             return false;
         }
 
@@ -42,7 +44,7 @@ class RoistatCallHandler
             ]);
             return $this->updateExistingLead($existingLead['ID'], $data);
         }*/
-Log::info('Creating new lead for phone', ['phone' => $phone]);
+        Log::info('Creating new lead for phone', ['phone' => $phone]);
         // Создаем лид
         $leadData = $this->prepareLeadData($data);
         $leadId = $this->leadService->create($leadData);
@@ -54,7 +56,7 @@ Log::info('Creating new lead for phone', ['phone' => $phone]);
             ]);
 
             // Добавляем запись разговора, если есть
-            if (!empty($data['link'])) {
+            if (! empty($data['link'])) {
                 $this->addCallRecord($leadId, $data);
             }
 
@@ -84,7 +86,7 @@ Log::info('Creating new lead for phone', ['phone' => $phone]);
         // UTM-метки
         $utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
         foreach ($utmFields as $field) {
-            if (!empty($data[$field])) {
+            if (! empty($data[$field])) {
                 $leadData[strtoupper($field)] = $data[$field];
             }
         }
@@ -93,7 +95,7 @@ Log::info('Creating new lead for phone', ['phone' => $phone]);
         $leadData[config('services.bitrix24.visit_field', 'UF_CRM_ROISTAT_VISIT')] = $data['visit_id'] ?? '';
         $leadData[config('services.bitrix24.source_field', 'UF_CRM_SOURCE')] = $data['marker'] ?? 'Звонок';
 
-        if (!empty($data['link'])) {
+        if (! empty($data['link'])) {
             $leadData[config('services.bitrix24.call_record_field', 'UF_CRM_CALL_RECORD')] = $data['link'];
         }
 
@@ -126,29 +128,29 @@ Log::info('Creating new lead for phone', ['phone' => $phone]);
         );
     }
 
-private function buildComments(array $data): string
-{
-    $date = isset($data['date']) ? $data['date'] : date('Y-m-d H:i:s');
-    $duration = isset($data['duration']) ? $data['duration'] : 0;
-    $landingPage = isset($data['landing_page']) ? $data['landing_page'] : '—';
-    $domain = isset($data['domain']) ? $data['domain'] : '—';
-    $referrer = isset($data['referrer']) ? $data['referrer'] : '—';
+    private function buildComments(array $data): string
+    {
+        $date = isset($data['date']) ? $data['date'] : date('Y-m-d H:i:s');
+        $duration = isset($data['duration']) ? $data['duration'] : 0;
+        $landingPage = isset($data['landing_page']) ? $data['landing_page'] : '—';
+        $domain = isset($data['domain']) ? $data['domain'] : '—';
+        $referrer = isset($data['referrer']) ? $data['referrer'] : '—';
 
-    $comments = [
-        "📞 Информация о звонке",
-        "Дата: {$date}",
-        "Длительность: {$duration} сек",
-        "Страница: {$landingPage}",
-        "Домен: {$domain}",
-        "Referrer: {$referrer}",
-    ];
+        $comments = [
+            '📞 Информация о звонке',
+            "Дата: {$date}",
+            "Длительность: {$duration} сек",
+            "Страница: {$landingPage}",
+            "Домен: {$domain}",
+            "Referrer: {$referrer}",
+        ];
 
-    if (!empty($data['link'])) {
-        $comments[] = "Запись: {$data['link']}";
+        if (! empty($data['link'])) {
+            $comments[] = "Запись: {$data['link']}";
+        }
+
+        return implode("\n", $comments);
     }
-
-    return implode("\n", $comments);
-}
 
     private function updateExistingLead(int $leadId, array $data): bool
     {
@@ -158,12 +160,12 @@ private function buildComments(array $data): string
 
         $utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
         foreach ($utmFields as $field) {
-            if (!empty($data[$field])) {
+            if (! empty($data[$field])) {
                 $updateData[strtoupper($field)] = $data[$field];
             }
         }
 
-        if (!empty($data['link'])) {
+        if (! empty($data['link'])) {
             $updateData[config('services.bitrix24.call_record_field', 'UF_CRM_CALL_RECORD')] = $data['link'];
         }
 

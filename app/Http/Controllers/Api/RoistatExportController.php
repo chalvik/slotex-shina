@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Log;
 class RoistatExportController extends Controller
 {
     private DealService $dealService;
+
     private LeadService $leadService;
+
     private UserService $userService;
 
     public function __construct(
@@ -27,15 +29,15 @@ class RoistatExportController extends Controller
 
     public function handleExport(Request $request)
     {
-      /*  if (!$this->authenticate($request)) {
-            Log::warning('Unauthorized export request', ['ip' => $request->ip()]);
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }*/
+        /*  if (!$this->authenticate($request)) {
+              Log::warning('Unauthorized export request', ['ip' => $request->ip()]);
+              return response()->json(['error' => 'Unauthorized'], 401);
+          }*/
 
         $action = $request->input('action');
-        $date = (int)$request->input('date', time());
-        $offset = (int)$request->input('offset', 0);
-        $limit = (int)$request->input('limit', 10000);
+        $date = (int) $request->input('date', time());
+        $offset = (int) $request->input('offset', 0);
+        $limit = (int) $request->input('limit', 10000);
 
         Log::info('📤 Roistat export request', [
             'action' => $action,
@@ -56,6 +58,7 @@ class RoistatExportController extends Controller
             return response()->json($response);
         } catch (\Exception $e) {
             Log::error('❌ Export error', ['action' => $action, 'error' => $e->getMessage()]);
+
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
@@ -65,12 +68,12 @@ class RoistatExportController extends Controller
         $user = $request->input('user');
         $token = $request->input('token');
 
-        if (!$user || !$token) {
+        if (! $user || ! $token) {
             return false;
         }
 
         $expectedToken = md5(
-            config('services.roistat.export_user') .
+            config('services.roistat.export_user').
             config('services.roistat.export_password')
         );
 
@@ -84,43 +87,44 @@ class RoistatExportController extends Controller
         return [
             'statuses' => $this->getStatuses(),
             'fields' => $this->getFields(),
-            //'managers' => $this->getManagers(),
+            // 'managers' => $this->getManagers(),
         ];
     }
 
     private function getClientsFromBitrix24(int $date, int $offset, int $limit): array
-{
-    $filter = [];
-    if ($date) {
-        $filter['>DATE_MODIFY'] = date('Y-m-d H:i:s', $date);
+    {
+        $filter = [];
+        if ($date) {
+            $filter['>DATE_MODIFY'] = date('Y-m-d H:i:s', $date);
+        }
+
+        // ✅ Используем новый вебхук crm.contact.list
+        $response = $this->client->call('crm.contact.list', [
+            'filter' => $filter,
+            'select' => ['ID', 'NAME', 'LAST_NAME', 'PHONE', 'EMAIL', 'COMPANY_TITLE'],
+            'order' => ['DATE_CREATE' => 'DESC'],
+            'start' => $offset,
+        ]);
+
+        if (isset($response['error']) || empty($response['result'])) {
+            Log::warning('No contacts found', ['response' => $response]);
+
+            return [];
+        }
+
+        $clients = [];
+        foreach ($response['result'] as $contact) {
+            $clients[] = [
+                'id' => $contact['ID'],
+                'name' => trim(($contact['NAME'] ?? '').' '.($contact['LAST_NAME'] ?? '')),
+                'phone' => $contact['PHONE'][0]['VALUE'] ?? '',
+                'email' => $contact['EMAIL'][0]['VALUE'] ?? '',
+                'company' => $contact['COMPANY_TITLE'] ?? '',
+            ];
+        }
+
+        return $clients;
     }
-
-    // ✅ Используем новый вебхук crm.contact.list
-    $response = $this->client->call('crm.contact.list', [
-        'filter' => $filter,
-        'select' => ['ID', 'NAME', 'LAST_NAME', 'PHONE', 'EMAIL', 'COMPANY_TITLE'],
-        'order' => ['DATE_CREATE' => 'DESC'],
-        'start' => $offset,
-    ]);
-
-    if (isset($response['error']) || empty($response['result'])) {
-        Log::warning('No contacts found', ['response' => $response]);
-        return [];
-    }
-
-    $clients = [];
-    foreach ($response['result'] as $contact) {
-        $clients[] = [
-            'id' => $contact['ID'],
-            'name' => trim(($contact['NAME'] ?? '') . ' ' . ($contact['LAST_NAME'] ?? '')),
-            'phone' => $contact['PHONE'][0]['VALUE'] ?? '',
-            'email' => $contact['EMAIL'][0]['VALUE'] ?? '',
-            'company' => $contact['COMPANY_TITLE'] ?? '',
-        ];
-    }
-
-    return $clients;
-}
 
     private function handleExportOrders(int $date, int $offset, int $limit): array
     {
@@ -130,7 +134,7 @@ class RoistatExportController extends Controller
         }
 
         $deals = $this->dealService->list($filter, $offset, $limit);
-        //print_r('<pre>1'.$deals.'</pre>');
+        // print_r('<pre>1'.$deals.'</pre>');
 
         $total = $this->getTotalOrdersCount($date);
 
@@ -138,10 +142,10 @@ class RoistatExportController extends Controller
         foreach ($deals as $deal) {
             $orders[] = [
                 'id' => $deal['ID'],
-                'name' => $deal['TITLE'] ?? 'Сделка #' . $deal['ID'],
+                'name' => $deal['TITLE'] ?? 'Сделка #'.$deal['ID'],
                 'date_create' => strtotime($deal['DATE_CREATE']),
                 'status' => $deal['STAGE_ID'] ?? 'NEW',
-                'price' => (float)($deal['OPPORTUNITY'] ?? 0),
+                'price' => (float) ($deal['OPPORTUNITY'] ?? 0),
                 'roistat' => $deal['UF_CRM_1785827564'] ?? '',
                 'client_id' => $deal['CONTACT_ID'] ?? '',
                 'manager_id' => $deal['ASSIGNED_BY_ID'] ?? '',
@@ -154,7 +158,7 @@ class RoistatExportController extends Controller
             'orders' => $orders,
             'statusess' => $this->getStatuses(),
             'fields' => $this->getFields(),
-        ///'managers' => $this->getManagers(),
+            // /'managers' => $this->getManagers(),
             'pagination' => [
                 'total_count' => $total,
                 'limit' => $limit,
@@ -205,12 +209,12 @@ class RoistatExportController extends Controller
         $result = [];
 
         foreach ($fields as $key => $field) {
-        // Убираем фильтр UF_CRM — включаем ВСЕ поля
-        $result[] = [
-            'id' => $key,
-            'name' => $field['title'] ?? $key,
-        ];
-    }
+            // Убираем фильтр UF_CRM — включаем ВСЕ поля
+            $result[] = [
+                'id' => $key,
+                'name' => $field['title'] ?? $key,
+            ];
+        }
 
         return $result;
     }
@@ -223,7 +227,7 @@ class RoistatExportController extends Controller
         foreach ($users as $user) {
             $result[] = [
                 'id' => $user['ID'],
-                'name' => trim(($user['NAME'] ?? '') . ' ' . ($user['LAST_NAME'] ?? '')),
+                'name' => trim(($user['NAME'] ?? '').' '.($user['LAST_NAME'] ?? '')),
                 'phone' => $user['PERSONAL_PHONE'] ?? '',
                 'email' => $user['EMAIL'] ?? '',
             ];
@@ -239,7 +243,7 @@ class RoistatExportController extends Controller
 
         foreach ($deal as $key => $value) {
             foreach ($prefixes as $prefix) {
-                if (strpos($key, $prefix) === 0 && !empty($value)) {
+                if (strpos($key, $prefix) === 0 && ! empty($value)) {
                     $fields[$key] = $value;
                 }
             }
@@ -253,7 +257,8 @@ class RoistatExportController extends Controller
         return 0;
     }
 
-    public function handleExport2(){
+    public function handleExport2()
+    {
         echo 'test';
     }
 }

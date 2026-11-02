@@ -15,6 +15,7 @@ class ProcessRoistatNotificationJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $tries = 3;
+
     public $backoff = [30, 60];
 
     protected array $data;
@@ -28,18 +29,18 @@ class ProcessRoistatNotificationJob implements ShouldQueue
     {
         try {
             Log::info('Processing notification', [
-                'event' => $this->data['notification_event'] ?? 'unknown'
+                'event' => $this->data['notification_event'] ?? 'unknown',
             ]);
 
             $result = $handler->handle($this->data);
 
             if ($result) {
                 Log::info('Notification processed successfully', [
-                    'event' => $this->data['notification_event'] ?? 'unknown'
+                    'event' => $this->data['notification_event'] ?? 'unknown',
                 ]);
             } else {
                 Log::warning('Notification processing failed', [
-                    'event' => $this->data['notification_event'] ?? 'unknown'
+                    'event' => $this->data['notification_event'] ?? 'unknown',
                 ]);
                 if ($this->attempts() < $this->tries) {
                     $this->release($this->backoff[$this->attempts() - 1] ?? 30);

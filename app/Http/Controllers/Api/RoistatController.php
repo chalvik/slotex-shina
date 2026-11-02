@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Services\Bitrix24\LeadService;
 use App\Services\Bitrix24\DealService;
+use App\Services\Bitrix24\LeadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 class RoistatController extends Controller
 {
     private LeadService $leadService;
+
     private DealService $dealService;
 
     public function __construct(LeadService $leadService, DealService $dealService)
@@ -41,6 +42,7 @@ class RoistatController extends Controller
             }
 
             Log::warning('Unknown event type', ['data' => $data]);
+
             return response()->json(['status' => 'error', 'message' => 'Unknown event type'], 200);
         } catch (\Exception $e) {
             Log::error('❌ Ошибка обработки вебхука', [
@@ -48,6 +50,7 @@ class RoistatController extends Controller
                 'trace' => $e->getTraceAsString(),
                 'data' => $data,
             ]);
+
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 200);
         }
     }
@@ -59,9 +62,10 @@ class RoistatController extends Controller
     private function handleCall(array $data)
     {
 
-    $callId = $data['id'] ?? null;
-        if (!$callId) {
+        $callId = $data['id'] ?? null;
+        if (! $callId) {
             Log::warning('Call without ID', ['data' => $data]);
+
             return response()->json(['status' => 'error', 'message' => 'Call ID required'], 200);
         }
 
@@ -73,7 +77,7 @@ class RoistatController extends Controller
         $sessionKey = "roistat_call_{$callId}";
         $stored = Session::get($sessionKey);
 
-        if (!$stored) {
+        if (! $stored) {
             // 🆕 ПЕРВЫЙ ЗАПРОС (во время звонка)
             Log::info('📞 Первый запрос (во время звонка)', [
                 'call_id' => $callId,
@@ -82,9 +86,9 @@ class RoistatController extends Controller
             ]);
 
             // Для неотвеченных сделка не создается
-         /*   file_put_content(
-                'test.log', json_encode($data)
-            );*/
+            /*   file_put_content(
+                   'test.log', json_encode($data)
+               );*/
             $dealId = null;
             if ($isMissed || $isDone) {
 
@@ -92,8 +96,9 @@ class RoistatController extends Controller
                 $fields = $this->prepareLeadData($data, $isMissed);
                 $leadId = $this->leadService->create($fields);
 
-                if (!$leadId) {
+                if (! $leadId) {
                     Log::error('❌ Не удалось создать лид');
+
                     return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
                 }
 
@@ -141,16 +146,16 @@ class RoistatController extends Controller
         $dealId = $stored['deal_id'] ?? null;
 
         // Добавляем запись разговора
-        if (!empty($data['link'])) {
+        if (! empty($data['link'])) {
             $this->leadService->update($leadId, [
                 'UF_CRM_1786433201' => $data['link'],
-                'COMMENTS' => "🔗 Запись разговора: " . $data['link'],
+                'COMMENTS' => '🔗 Запись разговора: '.$data['link'],
             ]);
 
             if ($dealId) {
                 $this->dealService->update($dealId, [
                     'UF_CRM_1786434399' => $data['link'],
-                    'COMMENTS' => "🔗 Запись разговора: " . $data['link'],
+                    'COMMENTS' => '🔗 Запись разговора: '.$data['link'],
                 ]);
             }
 
@@ -158,8 +163,8 @@ class RoistatController extends Controller
         }
 
         // Обновляем статус
-        if (!empty($data['status'])) {
-            $comments = "Статус звонка: {$data['status']} | Длительность: " . ($data['duration'] ?? 0) . " сек";
+        if (! empty($data['status'])) {
+            $comments = "Статус звонка: {$data['status']} | Длительность: ".($data['duration'] ?? 0).' сек';
             $this->leadService->update($leadId, ['COMMENTS' => $comments]);
         }
 
@@ -198,23 +203,21 @@ class RoistatController extends Controller
             }
         }
 
-
         $leads = $this->leadService->findLeadDuplicatePhone(
-            phone: $data['phone']?? '',
-            email: $data['email']?? '',
+            phone: $data['phone'] ?? '',
+            email: $data['email'] ?? '',
         );
 
-
         Log::debug($leads);
-        if (count($leads) < 1)
-         //  Проверить лид на дублирование
-        {
+        if (count($leads) < 1) {
+            //  Проверить лид на дублирование
             $mergedData = array_merge($data, $parsedData);
             $mergedData['custom_fields'] = $parsedData;
             $leadId = $this->createLeadFromForm($mergedData);
 
-            if (!$leadId) {
+            if (! $leadId) {
                 Log::error('❌ Не удалось создать лид из формы');
+
                 return response()->json(['status' => 'error', 'message' => 'Failed to create lead'], 200);
             }
 
@@ -224,17 +227,18 @@ class RoistatController extends Controller
             Log::debug('$lead');
             Log::debug($lead);
             $leadId = $lead['ID'];
+
             return response()->json([
                 'status' => 'success',
-                'lead_id' => $leadId ,
+                'lead_id' => $leadId,
             ]);
         }
 
         return response()->json([
             'status' => 'success',
-            'lead_id' => $leadId ,
-            'deal_id' => $dealId ,
-            'order_id' => $dealId ,
+            'lead_id' => $leadId,
+            'deal_id' => $dealId,
+            'order_id' => $dealId,
         ]);
     }
 
@@ -253,7 +257,7 @@ class RoistatController extends Controller
         $request = $data['UF_CRM_1786433238'] ?? '';
         $commentFromField = $data['UF_CRM_1786433301'] ?? '';
 
-        if (empty($comment) && !empty($commentFromField)) {
+        if (empty($comment) && ! empty($commentFromField)) {
             $comment = $commentFromField;
         }
 
@@ -277,20 +281,20 @@ class RoistatController extends Controller
         ]);
 
         $fields = [
-            'TITLE' => $title . ': ' . $name . ' ' . $phone,
+            'TITLE' => $title.': '.$name.' '.$phone,
             'NAME' => $name,
             'PHONE' => $phone ? [['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']] : [],
             'EMAIL' => $email ? [['VALUE' => $email, 'VALUE_TYPE' => 'WORK']] : [],
             'STATUS_ID' => 'UC_D7Z355',
             'ASSIGNED_BY_ID' => $this->getResponsibleId($city),
             'SOURCE_ID' => 'WEB',
-            'SOURCE_DESCRIPTION' => "Заявка с лендинга | Город: " . ($city ?: 'Не указан') . " | Дилер: " . ($dealer ?: 'Не указан'),
-            'COMMENTS' => "📝 Информация о заявке\n" .
-                           "Дата: " . ($data['date'] ?? date('Y-m-d H:i:s')) . "\n" .
-                           "Город: " . ($city ?: 'Не указан') . "\n" .
-                           "Дилер: " . ($dealer ?: 'Не указан') . "\n" .
-                           "Продукт: " . ($product ?: 'unknown') . "\n" .
-                           "Комментарий: " . ($comment ?: '—'),
+            'SOURCE_DESCRIPTION' => 'Заявка с лендинга | Город: '.($city ?: 'Не указан').' | Дилер: '.($dealer ?: 'Не указан'),
+            'COMMENTS' => "📝 Информация о заявке\n".
+                           'Дата: '.($data['date'] ?? date('Y-m-d H:i:s'))."\n".
+                           'Город: '.($city ?: 'Не указан')."\n".
+                           'Дилер: '.($dealer ?: 'Не указан')."\n".
+                           'Продукт: '.($product ?: 'unknown')."\n".
+                           'Комментарий: '.($comment ?: '—'),
             'UF_CRM_1786432965' => $city,
             'UF_CRM_1786433087' => $dealer,
             'UF_CRM_1786433126' => $product,
@@ -301,7 +305,7 @@ class RoistatController extends Controller
 
         $utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
         foreach ($utmFields as $field) {
-            if (!empty($data[$field])) {
+            if (! empty($data[$field])) {
                 $fields[strtoupper($field)] = $data[$field];
             }
         }
@@ -321,13 +325,13 @@ class RoistatController extends Controller
 
         $products = ['rau', 'duco', 'hpl'];
         foreach ($products as $product) {
-            if (stripos($landingPage, '/' . $product) !== false) {
+            if (stripos($landingPage, '/'.$product) !== false) {
                 return $product;
             }
         }
 
         parse_str(parse_url($landingPage, PHP_URL_QUERY) ?? '', $query);
-        if (!empty($query['product'])) {
+        if (! empty($query['product'])) {
             return strtolower($query['product']);
         }
 
@@ -368,16 +372,16 @@ class RoistatController extends Controller
         // ✅ Заголовок в зависимости от статуса
         if ($isMissed) {
             $title = sprintf('📞 Неотвеченный звонок: %s %s', $name, $phone);
-            $sourceDesc = "Пропущенный звонок на номер: " . ($data['callee'] ?? 'неизвестно');
+            $sourceDesc = 'Пропущенный звонок на номер: '.($data['callee'] ?? 'неизвестно');
             $statusId = 'UC_D7Z355';
-            $comments = "📞 Пропущенный звонок\nДата: " . ($data['date'] ?? date('Y-m-d H:i:s'));
+            $comments = "📞 Пропущенный звонок\nДата: ".($data['date'] ?? date('Y-m-d H:i:s'));
         } else {
             $title = $isCall
                 ? sprintf('Входящий звонок: %s %s', $name, $phone)
                 : sprintf('Заявка с лендинга: %s %s', $name, $phone);
             $sourceDesc = $isCall
-                ? "Звонок на номер: " . ($data['callee'] ?? 'неизвестно') . " | Статус: " . ($data['status'] ?? 'ANSWER')
-                : "Заявка с лендинга | Город: " . ($city ?: 'Не указан') . " | Дилер: " . ($dealer ?: 'Не указан');
+                ? 'Звонок на номер: '.($data['callee'] ?? 'неизвестно').' | Статус: '.($data['status'] ?? 'ANSWER')
+                : 'Заявка с лендинга | Город: '.($city ?: 'Не указан').' | Дилер: '.($dealer ?: 'Не указан');
             $statusId = 'UC_D7Z355';
             $comments = $this->buildComments($data);
         }
@@ -403,7 +407,7 @@ class RoistatController extends Controller
 
         $utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
         foreach ($utmFields as $field) {
-            if (!empty($data[$field])) {
+            if (! empty($data[$field])) {
                 $fields[strtoupper($field)] = $data[$field];
             }
         }
@@ -411,10 +415,8 @@ class RoistatController extends Controller
         return $fields;
     }
 
-
-
     // C6:UC_S9LHTU - заявка с сайта
-    //C6:UC_41XOVC -  принятый звонок
+    // C6:UC_41XOVC -  принятый звонок
     private function createDealFromLead(int $leadId, array $data, bool $isMissed = false): ?int
     {
         Log::debug('createDealFromLead');
@@ -431,25 +433,25 @@ class RoistatController extends Controller
         $name = $data['NAME'] ?? 'Клиент';
         $title = $data['TITLE'] ?? sprintf('Сделка: %s %s', $name, $phone);
 
-//        if (empty($product) && isset($data['landing_page'])) {
-//            $landingPage = $data['landing_page'] ?? '';
-//            $product = $this->getProductFromLanding($landingPage);
-//        }
+        //        if (empty($product) && isset($data['landing_page'])) {
+        //            $landingPage = $data['landing_page'] ?? '';
+        //            $product = $this->getProductFromLanding($landingPage);
+        //        }
 
-//        if (empty($city)) {
-//            $city = $data['DEALER_CITY'] ?? '';
-//            $dealer = $data['DEALER_NAME'] ?? '';
-//        }
+        //        if (empty($city)) {
+        //            $city = $data['DEALER_CITY'] ?? '';
+        //            $dealer = $data['DEALER_NAME'] ?? '';
+        //        }
 
         $fields = [
             'TITLE' => $title,
             'ASSIGNED_BY_ID' => $this->getResponsibleId($city),
             'CATEGORY_ID' => 6,
-            'STAGE_ID' =>  $isMissed ? 'C6:NEW' : 'C6:UC_41XOVC',
+            'STAGE_ID' => $isMissed ? 'C6:NEW' : 'C6:UC_41XOVC',
             'SOURCE_ID' => 'CALL',
             'LEAD_ID' => $leadId,
-//            'PHONE' => $phone,
-            'COMMENTS' => "Создана из лида #{$leadId}\nГород: " . ($city ?: 'Не указан') . "\nДилер: " . ($dealer ?: 'Не указан') . "\nПродукт: " . ($product ?: 'unknown'),
+            //            'PHONE' => $phone,
+            'COMMENTS' => "Создана из лида #{$leadId}\nГород: ".($city ?: 'Не указан')."\nДилер: ".($dealer ?: 'Не указан')."\nПродукт: ".($product ?: 'unknown'),
             'UF_CRM_1786434253' => $city,
             'UF_CRM_1786434296' => $dealer,
             'UF_CRM_1786434320' => $product,
@@ -460,7 +462,6 @@ class RoistatController extends Controller
 
         return $this->dealService->create($fields);
     }
-
 
     private function createDealFromLeadForm(int $leadId, array $data): ?int
     {
@@ -492,7 +493,7 @@ class RoistatController extends Controller
             'CATEGORY_ID' => 6,
             'STAGE_ID' => 'C6:NEW',
             'LEAD_ID' => $leadId,
-            'COMMENTS' => "Создана из лида #{$leadId}\nГород: " . ($city ?: 'Не указан') . "\nДилер: " . ($dealer ?: 'Не указан') . "\nПродукт: " . ($product ?: 'unknown'),
+            'COMMENTS' => "Создана из лида #{$leadId}\nГород: ".($city ?: 'Не указан')."\nДилер: ".($dealer ?: 'Не указан')."\nПродукт: ".($product ?: 'unknown'),
             'UF_CRM_1786434253' => $city,
             'UF_CRM_1786434296' => $dealer,
             'UF_CRM_1786434320' => $product,
@@ -508,12 +509,12 @@ class RoistatController extends Controller
         return $this->dealService->create($fields);
     }
 
-
     private function getDealerByCallee(string $callee): array
     {
         $map = [
             // '+74951234567' => ['city' => 'Казань', 'dealer' => 'Строительный двор', 'product' => 'duco'],
         ];
+
         return $map[$callee] ?? [];
     }
 
@@ -521,22 +522,23 @@ class RoistatController extends Controller
     {
         $comments = [];
         if (isset($data['caller'])) {
-            $comments[] = "📞 Информация о звонке";
-            $comments[] = "Дата: " . ($data['date'] ?? date('Y-m-d H:i:s'));
-            $comments[] = "Длительность: " . ($data['duration'] ?? 0) . " сек";
-            if (!empty($data['link'])) {
-                $comments[] = "🔗 Запись разговора: " . $data['link'];
+            $comments[] = '📞 Информация о звонке';
+            $comments[] = 'Дата: '.($data['date'] ?? date('Y-m-d H:i:s'));
+            $comments[] = 'Длительность: '.($data['duration'] ?? 0).' сек';
+            if (! empty($data['link'])) {
+                $comments[] = '🔗 Запись разговора: '.$data['link'];
             }
         } else {
-            $comments[] = "📝 Информация о заявке";
-            $comments[] = "Дата: " . ($data['date'] ?? date('Y-m-d H:i:s'));
-            if (!empty($data['comment'])) {
-                $comments[] = "Комментарий: " . $data['comment'];
+            $comments[] = '📝 Информация о заявке';
+            $comments[] = 'Дата: '.($data['date'] ?? date('Y-m-d H:i:s'));
+            if (! empty($data['comment'])) {
+                $comments[] = 'Комментарий: '.$data['comment'];
             }
-            if (!empty($data['request'])) {
-                $comments[] = "Запрос: " . $data['request'];
+            if (! empty($data['request'])) {
+                $comments[] = 'Запрос: '.$data['request'];
             }
         }
+
         return implode("\n", $comments);
     }
 

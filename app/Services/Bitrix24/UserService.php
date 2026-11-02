@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Services\Bitrix24;
+
 use Illuminate\Support\Facades\Log;
 
 class UserService
@@ -43,16 +45,14 @@ class UserService
         } while (true);
 
         Log::info('✅ Total users loaded', ['count' => count($allUsers)]);
+
         return $allUsers;
     }
-
 
     public function getById(int $userId): ?array
     {
         $response = $this->client->call('user.get', ['ID' => $userId]);
+
         return $response['result'][0] ?? null;
     }
-
-
-    
 }

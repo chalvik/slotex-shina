@@ -15,6 +15,7 @@ class ProcessRoistatCallJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $tries = 5;
+
     public $backoff = [30, 60, 120, 300];
 
     protected array $data;
