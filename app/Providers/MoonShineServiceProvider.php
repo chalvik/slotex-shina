@@ -10,6 +10,7 @@ use App\MoonShine\Resources\RoistatHistory\RoistatHistoryResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
+use App\MoonShine\Resources\CrmFeedback\CrmFeedbackResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 MoonShineUserResource::class,
                 MoonShineUserRoleResource::class,
                 RoistatHistoryResource::class,
+                CrmFeedbackResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

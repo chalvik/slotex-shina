@@ -11,6 +11,7 @@ use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Contracts\ColorManager\PaletteContract;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\MenuManager\MenuItem;
+use App\MoonShine\Resources\CrmFeedback\CrmFeedbackResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -31,6 +32,7 @@ final class MoonShineLayout extends AppLayout
         return [
             ...parent::menu(),
             MenuItem::make(RoistatHistoryResource::class, 'История Roistat'),
+            MenuItem::make(CrmFeedbackResource::class, 'CrmFeedbacks'),
         ];
     }
 
