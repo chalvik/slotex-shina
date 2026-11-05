@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('crm_feedback', function (Blueprint $table) {
             $table->id();
-//            name
-//            city
-//            email
-//            phone
-//            content
-//            image
-//            prompt
-//            source
+            $table->string('name');
+            $table->string('city');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('prompt')->nullable();
+            $table->integer('source')->default(0);
             $table->timestamps();
         });
     }
