@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('roistat_histories', function (Blueprint $table) {
             $table->id();
+            $table->longText('data');
             $table->timestamps();
         });
     }
