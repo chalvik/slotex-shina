@@ -13,6 +13,7 @@ use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
 use Throwable;
 
 /**
@@ -29,6 +30,10 @@ class RoistatHistoryIndexPage extends IndexPage
     {
         return [
             ID::make(),
+            Text::make('data', 'data'),
+
+            Text::make('created_at'),
+            Text::make('updated_at'),
         ];
     }
 
