@@ -102,9 +102,10 @@ class RoistatFormHandler
 
     private function buildSourceDescription(array $data): string
     {
+        $source = $data['marker'] ?? 'Неизвестен';
         $parts = [
             '📝 Заявка с лендинга',
-            "Источник: {$data['marker'] ?? 'Неизвестен'}",
+            "Источник: {$source}",
         ];
 
         if (!empty($data['domain'])) {

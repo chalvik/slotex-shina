@@ -7,15 +7,14 @@ use App\Http\Requests\StoreCrmFeedbackRequest;
 use App\Http\Resources\CrmFeedbackResource;
 use App\Services\CrmFeedbackService;
 
-class CrmFeedbackController extends Controller {
-
+class CrmFeedbackController extends Controller
+{
     public function __construct(
-      public  CrmFeedbackService $feedbackService
+        public CrmFeedbackService $feedbackService
     ) {}
 
     public function store(StoreCrmFeedbackRequest $request)
     {
         return CrmFeedbackResource::make($this->feedbackService->store($request->dto()));
     }
-
 }

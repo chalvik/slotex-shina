@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Dto\DtoCrmFeedback;
-use App\Http\Requests\StoreCrmFeedbackRequest;
 use App\Models\CrmFeedback;
 
 class CrmFeedbackService
@@ -16,7 +15,7 @@ class CrmFeedbackService
             'email' => $dto->email,
             'phone' => $dto->phone,
             'content' => $dto->content,
-            'image' => null, //$dto->image,
+            'image' => null, // $dto->image,
             'prompt' => $dto->prompt,
             'source' => $dto->source,
         ]);

@@ -3,8 +3,8 @@
 use App\Http\Controllers\Api\RoistatController;
 use App\Http\Controllers\Api\RoistatExportController;
 use App\Http\Controllers\Api\TestRoistatController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\CrmFeedbackController;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('roistat')->group(function () {
     // Прием вебхуков от Roistat (звонки, формы)
@@ -18,6 +18,6 @@ Route::prefix('roistat')->group(function () {
 });
 
 Route::prefix('v1')->group(function () {
-// Crm  Feedback
+    // Crm  Feedback
     Route::post('/crm/feedback', [CrmFeedbackController::class, 'store']);
 });

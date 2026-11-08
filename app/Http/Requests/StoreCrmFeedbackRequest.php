@@ -24,14 +24,14 @@ class StoreCrmFeedbackRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'string|required',
-            'city'=> 'string|required',
-            'email'=> 'string|nullable',
-            'phone'=> 'string|nullable',
-            'content'=> 'string|nullable',
-            'image'=> 'file|nullable',
-            'prompt'=> 'string|nullable',
-            'source'=> 'integer|nullable',
+            'name' => 'string|required',
+            'city' => 'string|required',
+            'email' => 'string|nullable',
+            'phone' => 'string|nullable',
+            'content' => 'string|nullable',
+            'image' => 'file|nullable',
+            'prompt' => 'string|nullable',
+            'source' => 'integer|nullable',
         ];
     }
 
