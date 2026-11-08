@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
-use App\Dto\DtoFeedback;
+use App\Dto\DtoCrmFeedback;
+use App\Http\Requests\StoreCrmFeedbackRequest;
 use App\Models\CrmFeedback;
 
-class CrmFeebbackService
+class CrmFeedbackService
 {
-    public function store(DtoFeedback $dto)
+    public function store(DtoCrmFeedback $dto): CrmFeedback
     {
         return CrmFeedback::query()->create([
             'name' => $dto->name,
@@ -15,7 +16,7 @@ class CrmFeebbackService
             'email' => $dto->email,
             'phone' => $dto->phone,
             'content' => $dto->content,
-            'image' => $dto->image,
+            'image' => null, //$dto->image,
             'prompt' => $dto->prompt,
             'source' => $dto->source,
         ]);

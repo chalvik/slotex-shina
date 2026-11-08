@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class DtoFeedback
+class DtoCrmFeedback
 {
     public function __construct(
         public string $name,
@@ -14,4 +14,5 @@ class DtoFeedback
         public ?string $prompt,
         public ?int $source
     ) {}
+
 }
